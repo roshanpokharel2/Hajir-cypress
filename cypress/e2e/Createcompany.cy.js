@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import 'cypress-file-upload';
 function generateRandomString(length) {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -8,7 +9,7 @@ function generateRandomString(length) {
   }
   return result;
 }
-const companyName = generateRandomString(10);
+const companyname = generateRandomString(10);
 describe('Should be able to create company',() => {
 beforeEach(()=>{
         cy.visit('https://hajirnext.vercel.app/login')

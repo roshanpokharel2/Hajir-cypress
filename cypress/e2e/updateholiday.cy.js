@@ -1,3 +1,4 @@
+import 'cypress-file-upload';
 describe('Should be able to update holiday ',() => {
     beforeEach(()=>{
             cy.visit('https://hajirnext.vercel.app/login')
