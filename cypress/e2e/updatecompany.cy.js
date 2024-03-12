@@ -12,7 +12,7 @@ describe('Update existing company',()=>{
         });
         cy.get("button[type='submit']").click()
         cy.url().should('eq', 'https://hajirnext.vercel.app/dashboard');
-        window.location.reload(true);
+        // window.location.reload(true);
         cy.wait(5000);
  });
  //Test case-1
