@@ -1,12 +1,12 @@
 /// <reference types="Cypress" />
-import { empToken } from './Constants file/constants.js';
+import { companyId ,empToken , candidateId } from './../../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 describe("GET profile with Authorization", () => {
   it('should show profile request with authorization header', () => {
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/get-profile',
+      url: `https://veloxlabs.net/api/v2/employer/candidate/update/${companyId}/${candidateId}`,
       headers: {
         'Authorization': empToken 
                }

@@ -1,6 +1,9 @@
 /// <reference types="Cypress" />
+
+import { employerPhone } from "../../Constantsfile/constants.js";
+
 const baseUrl = Cypress.env('baseUrl');
-import { employerPhone } from '../../constants.js'; 
+
 
 describe("Registration Process", () => {
   it('should be able to register and generate otp', () => {

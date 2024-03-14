@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 const baseUrl = Cypress.env('baseUrl');
-import { employerPhone , otpe } from './Constants file/constants.js';
+import { employerPhone, otpe } from "../../Constantsfile/constants.js";
 
-describe("Registration Process", () => {
+describe("Registration Process", () =>  {
   it('should be able verify otp', () => {
     cy.request({
       method: 'POST',
