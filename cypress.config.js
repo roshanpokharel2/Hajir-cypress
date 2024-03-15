@@ -6,15 +6,14 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+    }
+  },
+  env: {
+    staging: {
+      configFile: "cypress.env.staging.json"
     },
-    baseUrl: "https://veloxlabs.net/api/v2", // Move baseUrl under e2e
-    env: {
-      staging: {
-        configFile: "cypress.env.staging.json"
-      },
-      production: {
-        configFile: "cypress.env.production.json"
-      }
+    production: {
+      configFile: "cypress.env.production.json"
     }
   }
 });

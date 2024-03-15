@@ -8,10 +8,10 @@ export const otpe =" 1982"
 
 
 //Candidate side 
-export const candidatePhone = "9840000000";
+export const candidatePhone = "9861389660";
 export const candidateToken = "your_candidate_token";
 export const canToken = `Bearer ${candidateToken}`;
-export const candidateId = "your_candidate_id";
-export const device_token ="roshanpokahrel";
+export const candidateId = 13 ;
+export const device_token ="roshanpokharel";
 export const otpc ="1982"
 //import { employerPhone, candidatePhone, candidateToken, employerToken, candidateId, employerId, companyId } from './Constants file/constants';
