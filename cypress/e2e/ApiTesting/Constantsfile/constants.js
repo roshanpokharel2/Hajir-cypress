@@ -8,6 +8,8 @@ export const otpe =" 1982"
 export const from_date= "2024-02-10"
 export const to_date = "2024-02-16"
 export const todaydate ="2024/03/17"
+export const month = 2;
+export const year = "2024"
 
 //Candidate side 
 export const candidatePhone = "9861389660";
