@@ -5,7 +5,8 @@ export const empToken = `Bearer ${employerToken}`; // Adding "Bearer" prefix to 
 export const employerId = 2;
 export const companyId = 2;
 export const otpe =" 1982"
-
+export const month = 2;
+export const year = "2024"
 
 //Candidate side 
 export const candidatePhone = "9861389660";
