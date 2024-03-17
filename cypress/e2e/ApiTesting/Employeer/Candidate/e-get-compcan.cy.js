@@ -1,0 +1,43 @@
+/// <reference types="Cypress" />
+
+import { companyId, empToken } from '../../Constantsfile/constants';
+
+
+const baseUrl = Cypress.env('baseUrl');
+
+describe("get company candidate ", () => {
+  it('should be able to get company candidates', () => {
+    cy.request({
+      method: 'GET',
+      url: `https://veloxlabs.net/api/v2/employer/candidate/get-candidates/${companyId}`,
+      headers: {
+        'Authorization': empToken 
+               }
+               
+    }).then(response => {
+        expect(response.status).to.eq(200);
+        expect(response.body.status).to.eq('success');
+        expect(response.body.message).to.eq('Successfully Fetched.');
+        expect(response.body).to.have.property('data');
+
+        // Verify active candidates
+        expect(response.body.data).to.have.property('active_candidates').to.be.an('array');
+        const activeCandidates = response.body.data.active_candidates;
+        activeCandidates.forEach(candidate => {
+          expect(candidate).to.have.property('id');
+          expect(candidate).to.have.property('company_id');
+          expect(candidate).to.have.property('candidate_id');
+          expect(candidate).to.have.property('name');
+                });
+        // Verify inactive candidates
+        expect(response.body.data).to.have.property('inactive_candidates').to.be.an('array');
+        const inactiveCandidates = response.body.data.inactive_candidates;
+        inactiveCandidates.forEach(candidate => {
+          expect(candidate).to.have.property('id');
+          expect(candidate).to.have.property('company_id');
+          expect(candidate).to.have.property('candidate_id');
+          expect(candidate).to.have.property('name');
+        });
+    });
+  });
+});
