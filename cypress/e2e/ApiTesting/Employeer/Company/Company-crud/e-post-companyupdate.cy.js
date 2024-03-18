@@ -4,7 +4,7 @@ import { empToken, companyId} from '../../constants.js';
 
 describe("Company update Process", () => {
   it('should be able to update/edit the company', () => {
-    console.log(companyId)
+  
     cy.fixture('Default_gov_holiday_2081.xls').then((fileContent) => {
       cy.request({
         method: 'POST',
