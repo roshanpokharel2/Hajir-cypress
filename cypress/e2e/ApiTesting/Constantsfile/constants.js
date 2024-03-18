@@ -21,4 +21,6 @@ export const canToken = `Bearer ${candidateToken}`;
 export const candidateId = 13 ;
 export const device_token ="roshanpokharel";
 export const otpc ="1982"
+export const attendanceId = "1323"
+export const breakId = "199"
 //import { employerPhone, candidatePhone, candidateToken, employerToken, candidateId, employerId, companyId } from './Constants file/constants';
