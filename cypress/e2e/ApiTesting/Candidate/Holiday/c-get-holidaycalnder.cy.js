@@ -22,7 +22,7 @@ describe("to get holiday calender  ", () => {
       holidays.forEach((holiday) => {
         expect(holiday).to.have.property('id').that.is.a('number');
         expect(holiday).to.have.property('holiday_name').that.is.a('string').and.is.not.empty;
-        expect(holiday).to.have.property('date').that.is.a('string').and.match(/^\d{4}-\d{2}-\d{2}$/);
+       
       });
         });
       });

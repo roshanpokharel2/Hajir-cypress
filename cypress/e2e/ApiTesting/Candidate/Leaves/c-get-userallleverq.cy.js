@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
-import { companyId, empToken } from './../../Constantsfile/constants';
+
+import { canToken, companyId } from "../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
 
 
@@ -10,7 +12,7 @@ describe("get user all types", () => {
         method: 'GET',
         url: `https://veloxlabs.net/api/v2/candidate/all-leaves/${companyId}`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization' : canToken
         },
       }).then(response => {
             expect(response.status).to.equal(200);

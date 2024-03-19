@@ -1,5 +1,7 @@
 /// <reference types="Cypress" />
-import { companyId, empToken } from './../../Constantsfile/constants';
+
+import { canToken, companyId } from "../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
 
 
@@ -10,7 +12,7 @@ describe("store leave Details", () => {
         method: 'POST',
         url: `https://veloxlabs.net/api/v2/candidate/store-leave/${companyId}`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization' : canToken
         },
         body: {
             'leave_type_id':1,

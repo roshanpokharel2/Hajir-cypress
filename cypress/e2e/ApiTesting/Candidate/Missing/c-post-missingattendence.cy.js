@@ -1,5 +1,9 @@
 /// <reference types="Cypress" />
-import { companyId, empToken } from './../../Constantsfile/constants';
+
+import { canToken, companyId } from "../../Constantsfile/constants";
+
+
+
 const baseUrl = Cypress.env('baseUrl');
 
 
@@ -10,7 +14,7 @@ describe("Post missing attendence", () => {
         method: 'POST',
         url: 'https://veloxlabs.net/api/v2/candidate/approver/missing-attendance-submit', 
         headers: {
-          'Authorization' : empToken
+          'Authorization' : canToken
         },
         body :{
             'start_time':"8:00:00",

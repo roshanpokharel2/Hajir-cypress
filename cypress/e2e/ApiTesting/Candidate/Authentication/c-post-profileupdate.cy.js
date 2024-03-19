@@ -4,13 +4,13 @@ import { canToken } from './../../Constantsfile/constants';
 const baseUrl = Cypress.env('baseUrl');
 describe("profile update of candidate", () => {
   it('should update profile', () => {
-    // Read the file contents
+  
     cy.fixture('photo.jpg', 'binary').then((fileContent) => {
-      // Create a FormData object
+
       const formData = new FormData();
-      // Append the file content to FormData
+    
       formData.append('uploadfile', fileContent, 'photo.jpg');
-      // Add additional fields to the request body
+   
       formData.append('title', 'Miss');
       formData.append('name', 'Pooja Upreti');
       formData.append('email', 'puja@gmail.com');

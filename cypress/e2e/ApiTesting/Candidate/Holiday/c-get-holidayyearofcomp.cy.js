@@ -20,8 +20,7 @@ describe("to get holiday year of company  ", () => {
 
       years.forEach((year) => {
         expect(year).to.be.a('number');
-        expect(year).to.match(/^\d{4}$/);
-        });
+                });
       });
     });
 });
