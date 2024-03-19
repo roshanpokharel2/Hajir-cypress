@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 const baseUrl = Cypress.env('baseUrl');
-import { candidatePhone, otpe } from './../../Constantsfile/constants';
+import { candidatePhone, otpc } from './../../Constantsfile/constants';
 
 describe("Registration Process", () =>  {
   it('should be able verify otp', () => {
@@ -12,7 +12,7 @@ describe("Registration Process", () =>  {
       },
       body: {
         "phone": candidatePhone,
-        "otp": otpe
+        "otp": otpc
       }
     }).then(response => {
       expect(response.status).to.equal(200); 

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:42:07.194Z",
+    "end": "2024-03-19T08:42:08.877Z",
+    "duration": 1683,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7bff0fd2-7cf0-4261-b6a9-7dfbb14e8283",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTesting\\Candidate\\Approver\\c-get-canbycompid.cy.js",
+      "file": "cypress\\e2e\\ApiTesting\\Candidate\\Approver\\c-get-canbycompid.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "36730bc3-2bc6-44aa-be11-a69ec7a26223",
+          "title": "to get holiday year of company  ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to get holiday year of company  ",
+              "fullTitle": "to get holiday year of company   should be able to get holiday year of company  ",
+              "timedOut": null,
+              "duration": 1580,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://veloxlabs.net/api/v2/candidate/approver/candidates/${_constants.companyId}`,\n  headers: {\n    'Authorization': _constants.canToken\n  }\n}).then(response => {});",
+              "err": {},
+              "uuid": "d952a841-81fd-499d-bf85-cfce920058be",
+              "parentUUID": "36730bc3-2bc6-44aa-be11-a69ec7a26223",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d952a841-81fd-499d-bf85-cfce920058be"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1580,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

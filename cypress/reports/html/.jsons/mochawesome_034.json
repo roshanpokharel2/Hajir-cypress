@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:48:10.011Z",
+    "end": "2024-03-19T08:48:11.897Z",
+    "duration": 1886,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dc420273-7769-4cb9-bf06-cc495c3cf30c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTesting\\Candidate\\Leaves\\c-get-userallleverq.cy.js",
+      "file": "cypress\\e2e\\ApiTesting\\Candidate\\Leaves\\c-get-userallleverq.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3f0422d9-ab34-4b01-b199-6a6b12a981b0",
+          "title": "get user all types",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to get all user types  ",
+              "fullTitle": "get user all types should be able to get all user types  ",
+              "timedOut": null,
+              "duration": 1472,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://veloxlabs.net/api/v2/candidate/all-leaves/${_constants.companyId}`,\n  headers: {\n    'Authorization': _constants.canToken\n  }\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.status).to.equal(\"success\");\n  expect(response.body.message).to.equal(\"Successfully Fetched\");\n  expect(response.body.data).to.have.property(\"approved_leaves\").that.is.an(\"array\");\n  expect(response.body.data).to.have.property(\"unapproved_leaves\").that.is.an(\"array\");\n  expect(response.body.data).to.have.property(\"rejected_leaves\").that.is.an(\"array\");\n  expect(response.body.data.approved_leaves[0]).to.have.property(\"id\").that.is.a(\"number\");\n  expect(response.body.data.approved_leaves[0]).to.have.property(\"leave_type\").that.is.a(\"string\");\n  expect(response.body.data.approved_leaves[0]).to.have.property(\"application_date\").that.is.a(\"string\");\n  expect(response.body.data.unapproved_leaves[0]).to.have.property(\"id\").that.is.a(\"number\");\n  expect(response.body.data.unapproved_leaves[0]).to.have.property(\"leave_type\").that.is.a(\"string\");\n  expect(response.body.data.unapproved_leaves[0]).to.have.property(\"application_date\").that.is.a(\"string\");\n  expect(response.body.data.rejected_leaves).that.is.an(\"array\");\n});",
+              "err": {},
+              "uuid": "ebf9edce-eb27-4f4d-9977-29319527c659",
+              "parentUUID": "3f0422d9-ab34-4b01-b199-6a6b12a981b0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ebf9edce-eb27-4f4d-9977-29319527c659"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1472,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2024-03-19T08:31:53.328Z",
+    "end": "2024-03-19T08:33:09.426Z",
+    "duration": 76098,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "657eec45-c405-4b70-9bc8-0ffca926de7d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\website-check\\Addemployee.cy.js",
+      "file": "cypress\\e2e\\website-check\\Addemployee.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8a3e4565-55db-48e9-800a-993193ddd95d",
+          "title": "Adding employee on Company",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to add employee as weekly based ",
+              "fullTitle": "Adding employee on Company should be able to add employee as weekly based ",
+              "timedOut": null,
+              "duration": 17531,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Addemployee.cy.js\\\\Adding employee on Company -- should be able to add employee as weekly based (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root']\").click();\ncy.get(\"//button[2]//div[1]\").click();\ncy.get(\"//div[@id=':r1u:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//tr[@class='MuiTableRow-root mui-gr5oml']//td[2]\").should('be.visible');\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"//button[normalize-space()='Create Employee']\").click();\ncy.get(\"//input[@id=':r4i:']\").type('hellotest');\ncy.get(\"//div[@id='mui-component-select-name_holder']\").click();\ncy.get(\"//li[normalize-space()='Mr']\").click();\ncy.fixture('employeename.json').then(data => {\n  const randomName = data.names[Math.floor(Math.random() * data.names.length)];\n  cy.get(\"//input[@id=':r5q:']\").type(randomName);\n});\ncy.get(\"//input[@id=':r5r:']\").type('9812345678');\ncy.get(\"//input[@id=':r5u:']\").type('9812345678');\ncy.get(\"//input[@id=':r5s:']\").type('Quality Analyst');\ncy.get(\"//div[@id='mui-component-select-departments']\").click();\ncy.get(\"div.MuiPaper-root\").scrollIntoView().contains('Quality Assurance (QA)').should('be.visible').click();\ncy.get(\"//div[@id='mui-component-select-marriage_status']\").click();\ncy.get(\"//li[normalize-space()='Unmarried']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//div[@id='mui-component-select-salary_type']\").click();\ncy.get(\"//li[normalize-space()='Weekly']\").click();\ncy.get(\"//input[@id=':r5:']\").contains('08:00').should('be.visible');\ncy.get(\"//input[@value='Fixed']\").click();\ncy.get(\"//input[@id=':r6:']\").type('09:00');\ncy.get(\"//div[@id='mui-component-select-am_pm']\").click();\ncy.get(\"//li[normalize-space()='AM']\").click();\ncy.get(\"//input[@id=':r4:']\").type('20000');\ncy.get(\"//label[@id=':r8:-label']\").type('00:30');\ncy.get(\"//div[@id='mui-component-select-probation_period']\").click();\ncy.get(\"//li[normalize-space()='3 months']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//p[normalize-space()='Sunday']\").click();\ncy.get(\"//p[normalize-space()='Saturday']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//input[@id=':ro:']\").type('03/10/2024');\ncy.get(\"//input[@name='allow_late_attendance_checked']\").click();\ncy.get(\"//input[@id=':rt:']\").type('00:10');\ncy.get(\"//input[@name='overtime_checked']\").click();\ncy.get(\"//input[@id=':rq:']\").type('1');\ncy.get(\"//input[@id=':ru:']\").type('2');\ncy.get(\"//input[@name='sick_leave_checked']\").click();\ncy.get(\"//input[@id=':rr:']\").type('6');\ncy.get(\"//input[@name='casual_leave_checked']\").click();\ncy.get(\"//input[@name='casual_leave_checked']\").type('7');\ncy.get(\"//span[normalize-space()='All']\").click();\ncy.get(\"//button[normalize-space()='Test Submit']\").click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Candidate Added Successfully.');\n  return true;\n});\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"//button[@class='MuiButtonBase-root]\").click();",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "001d2d36-5c45-44ee-b490-a3693785b8f5",
+              "parentUUID": "8a3e4565-55db-48e9-800a-993193ddd95d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to add employee as Monthly based ",
+              "fullTitle": "Adding employee on Company should be able to add employee as Monthly based ",
+              "timedOut": null,
+              "duration": 17339,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Addemployee.cy.js\\\\Adding employee on Company -- should be able to add employee as Monthly based (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root']\").click();\ncy.get(\"//button[2]//div[1]\").click();\ncy.get(\"//div[@id=':r1u:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//tr[@class='MuiTableRow-root mui-gr5oml']//td[2]\").should('be.visible');\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"//button[normalize-space()='Create Employee']\").click();\ncy.get(\"//input[@id=':r4i:']\").type('rphere');\ncy.get(\"//div[@id='mui-component-select-name_holder']\").click();\ncy.get(\"//li[normalize-space()='Mr']\").click();\ncy.fixture('employeename.json').then(data => {\n  const randomName = data.names[Math.floor(Math.random() * data.names.length)];\n  cy.get(\"//input[@id=':r5q:']\").type(randomName);\n});\ncy.get(\"//input[@id=':r5r:']\").type('9812345678');\ncy.get(\"//input[@id=':r5u:']\").type('9812345678');\ncy.get(\"//input[@id=':r5s:']\").type('Quality Analyst');\ncy.get(\"//div[@id='mui-component-select-departments']\").click();\ncy.get(\"div.MuiPaper-root\").scrollIntoView().contains('Quality Assurance (QA)').should('be.visible').click();\ncy.get(\"//div[@id='mui-component-select-marriage_status']\").click();\ncy.get(\"//li[normalize-space()='Unmarried']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//div[@id='mui-component-select-salary_type']\").click();\ncy.get(\"//li[normalize-space()='Monthly']\").click();\ncy.get(\"//input[@id=':r5:']\").contains('08:00').should('be.visible');\ncy.get(\"//input[@value='Fixed']\").click();\ncy.get(\"//input[@id=':r6:']\").type('09:00');\ncy.get(\"//div[@id='mui-component-select-am_pm']\").click();\ncy.get(\"//li[normalize-space()='AM']\").click();\ncy.get(\"//input[@id=':r4:']\").type('20000');\ncy.get(\"//label[@id=':r8:-label']\").type('00:30');\ncy.get(\"//div[@id='mui-component-select-probation_period']\").click();\ncy.get(\"//li[normalize-space()='3 months']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//p[normalize-space()='Sunday']\").click();\ncy.get(\"//p[normalize-space()='Saturday']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.wait(2000);\ncy.get(\"//input[@id=':ro:']\").type('03/10/2024');\ncy.get(\"//input[@name='allow_late_attendance_checked']\").click();\ncy.get(\"//input[@id=':rt:']\").type('00:10');\ncy.get(\"//input[@name='overtime_checked']\").click();\ncy.get(\"//input[@id=':rq:']\").type('1');\ncy.get(\"//input[@id=':ru:']\").type('2');\ncy.get(\"//input[@name='sick_leave_checked']\").click();\ncy.get(\"//input[@id=':rr:']\").type('6');\ncy.get(\"//input[@name='casual_leave_checked']\").click();\ncy.get(\"//input[@name='casual_leave_checked']\").type('7');\ncy.get(\"//span[normalize-space()='All']\").click();\ncy.get(\"//button[normalize-space()='Test Submit']\").click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Candidate Added Successfully.');\n  return true;\n});\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"//button[@class='MuiButtonBase-root]\").click();",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "4f0f564c-433d-4ad2-93d8-d3a209d57df1",
+              "parentUUID": "8a3e4565-55db-48e9-800a-993193ddd95d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be presence of validation with correct form",
+              "fullTitle": "Adding employee on Company should be presence of validation with correct form",
+              "timedOut": null,
+              "duration": 16241,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Addemployee.cy.js\\\\Adding employee on Company -- should be presence of validation with correct form (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root']\").click();\ncy.get(\"//button[2]//div[1]\").click();\ncy.get(\"//div[@id=':r1u:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//tr[@class='MuiTableRow-root mui-gr5oml']//td[2]\").should('be.visible');\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"//button[normalize-space()='Create Employee']\").click();\ncy.get(\"//button[normalize-space()='Next']\").click();\ncy.get(\"//p[@id=':r4k:-helper-text']\").contains('Staff Code is required').should('be.visible');\ncy.get(\"//p[@id=':r4m:-helper-text']\").contains('Full Name is required').should('be.visible');\ncy.get(\"//p[@id=':r4n:-helper-text']\").contains('Mobile Number is required').should('be.visible');\ncy.get(\"//p[@id=':r4q:-helper-text']\").contains('Confirm Phone Number is required').should('be.visible');\ncy.get(\"//p[@id=':r4o:-helper-text']\").contains('Designation is required').should('be.visible');\ncy.get(\"//input[@id=':r56:']\").type('@#$%^&*').should('contain', 'Name is not validate');\ncy.get(\"//input[@id=':r57:']\").type('99877636813813').should('contain', 'Number is not validate');",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "0b0668dd-d5f5-43c4-9fbb-2b4578f60f44",
+              "parentUUID": "8a3e4565-55db-48e9-800a-993193ddd95d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to view employee detail",
+              "fullTitle": "Adding employee on Company should be able to view employee detail",
+              "timedOut": null,
+              "duration": 12763,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Addemployee.cy.js\\\\Adding employee on Company -- should be able to view employee detail -- before each hook (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root']\").click();\ncy.get(\"//button[2]//div[1]\").click();\ncy.get(\"//div[@id=':r1u:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//tr[@class='MuiTableRow-root mui-gr5oml']//td[2]\").should('be.visible');\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//h2[normalize-space()='Employee']\").should('be.visible');\ncy.get(\"(//td)[2]\").click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://hajirnext.vercel.app/otp?phone=9861389660&otp=2806' to equal 'https://hajirnext.vercel.app/dashboard'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Adding employee on Company`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://hajirnext.vercel.app/otp?phone=9861389660&otp=2806' to equal 'https://hajirnext.vercel.app/dashboard'\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Adding employee on Company`\n    at Context.eval (webpack://veloxlab-hajir_cypress/./cypress/e2e/website-check/Addemployee.cy.js:14:17)",
+                "diff": "- '\\'https://hajirnext.vercel.app/otp?phone=9861389660&otp=2806\\''\n+ '\\'https://hajirnext.vercel.app/dashboard\\''\n"
+              },
+              "uuid": "7c0aa983-8ef7-46c9-9be4-81885a7f52c1",
+              "parentUUID": "8a3e4565-55db-48e9-800a-993193ddd95d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "001d2d36-5c45-44ee-b490-a3693785b8f5",
+            "4f0f564c-433d-4ad2-93d8-d3a209d57df1",
+            "0b0668dd-d5f5-43c4-9fbb-2b4578f60f44",
+            "7c0aa983-8ef7-46c9-9be4-81885a7f52c1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 63874,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

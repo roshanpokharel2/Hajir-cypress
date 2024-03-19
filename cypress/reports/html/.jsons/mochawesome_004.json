@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:35:33.197Z",
+    "end": "2024-03-19T08:36:52.973Z",
+    "duration": 79776,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "496b27ae-950e-4d3b-bf29-4e8a6f4fee7c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\website-check\\Loginpage.cy.js",
+      "file": "cypress\\e2e\\website-check\\Loginpage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8914a501-ad3e-4d36-ab88-789c723f972e",
+          "title": "Login Form Validation Hajir App",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should Login for valid phone number",
+              "fullTitle": "Login Form Validation Hajir App should Login for valid phone number",
+              "timedOut": null,
+              "duration": 14838,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"img[alt='Logo']\").should('be.visible');\ncy.get(\"input[id='phone']\").type('9861389660'); // Type valid phone number into the phone input field\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click(); // Click on Get Otp \ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Successfully Registered.'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.get(\"button[type='submit']\").click();\ncy.url().should('eq', 'https://hajirnext.vercel.app/dashboard');\n// window.location.reload(true);\ncy.wait(5000);",
+              "err": {},
+              "uuid": "f9bc0376-96ca-457d-97a6-adc0b32ec177",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message for invalid OTP",
+              "fullTitle": "Login Form Validation Hajir App should display error message for invalid OTP",
+              "timedOut": null,
+              "duration": 6931,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[id='phone']\").type('9861389660');\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click().then(() => {\n  cy.on('window:alert', alertText => {\n    if (alertText.includes('Successfully Registered')) {\n      expect(alertText).to.contains('Successfully Registered');\n    }\n  });\n});\ncy.get('#otp-input-0').clear().type('8');\ncy.get('#otp-input-1').clear().type('8');\ncy.get('#otp-input-2').clear().type('8');\ncy.get('#otp-input-3').clear().type('8');\ncy.get(\"button[type='submit']\").click().then(() => {\n  cy.on('window:alert', alertText => {\n    expect(alertText).to.contains('An error occurred during OTP verification. Please try again.'); // Assert that the alert text contains the expected error message\n    return true;\n  });\n});",
+              "err": {},
+              "uuid": "f6ed2cb9-76bc-4400-90b7-840cb88dfb15",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message for invalid phone number",
+              "fullTitle": "Login Form Validation Hajir App should display error message for invalid phone number",
+              "timedOut": null,
+              "duration": 2014,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[id='phone']\").type(1111111111); // Clear the phone input field\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click(); // Click on the submit button\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Phone number must start with 98, 97, or 96 and be exactly 10 digits'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.get(\"button[type='submit']\").click();",
+              "err": {},
+              "uuid": "eb41e86f-9f3d-44df-b414-813aa3e31f93",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should display error message for incomplete phone number",
+              "fullTitle": "Login Form Validation Hajir App should display error message for incomplete phone number",
+              "timedOut": null,
+              "duration": 1991,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[id='phone']\").type(9861); // Clear the phone input field\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click(); // Click on the submit button\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Phone number must start with 98, 97, or 96 and be exactly 10 digits'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.get(\"button[type='submit']\").click();",
+              "err": {},
+              "uuid": "f4367a38-3e90-45ae-9753-459e8977e1c6",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to Request new otp",
+              "fullTitle": "Login Form Validation Hajir App should be able to Request new otp",
+              "timedOut": null,
+              "duration": 42595,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"input[id='phone']\").type('9861389660'); // Type valid phone number into the phone input field\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click(); // Click on Get Otp \ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Successfully Registered.'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.wait(30000);\ncy.get(\"button[type='button']\").click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Successfully Registered.'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.get(\"button[type='submit']\").click();\ncy.url().should('eq', 'https://hajirnext.vercel.app/dashboard');\n// window.location.reload(true);\ncy.wait(5000);",
+              "err": {},
+              "uuid": "db775fcd-b47b-4c4e-b0ef-641c862ae4ca",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should be able to view terms and conditions",
+              "fullTitle": "Login Form Validation Hajir App Should be able to view terms and conditions",
+              "timedOut": null,
+              "duration": 2324,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Terms & Services').click();",
+              "err": {},
+              "uuid": "5cfd14f9-a762-4dad-9c8b-e1d38bcfb4c8",
+              "parentUUID": "8914a501-ad3e-4d36-ab88-789c723f972e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f9bc0376-96ca-457d-97a6-adc0b32ec177",
+            "f6ed2cb9-76bc-4400-90b7-840cb88dfb15",
+            "eb41e86f-9f3d-44df-b414-813aa3e31f93",
+            "f4367a38-3e90-45ae-9753-459e8977e1c6",
+            "db775fcd-b47b-4c4e-b0ef-641c862ae4ca",
+            "5cfd14f9-a762-4dad-9c8b-e1d38bcfb4c8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 70693,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

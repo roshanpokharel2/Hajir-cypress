@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:37:01.306Z",
+    "end": "2024-03-19T08:37:22.846Z",
+    "duration": 21540,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "948e7769-4884-4255-bbcf-8670ac931b19",
+      "title": "",
+      "fullFile": "cypress\\e2e\\website-check\\LogoutProfile.cy.js",
+      "file": "cypress\\e2e\\website-check\\LogoutProfile.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e09b32b-1fb2-4bb9-a709-8e444aac6ec8",
+          "title": "Logout For Hajir App",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to Logout",
+              "fullTitle": "Logout For Hajir App should be able to Logout",
+              "timedOut": null,
+              "duration": 13373,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"img[alt='Logo']\").should('be.visible');\ncy.get(\"input[id='phone']\").type('9861389660'); // Type valid phone number into the phone input field\ncy.get(\"input[type='checkbox']\").click();\ncy.get(\"button[type='submit']\").click(); // Click on Get Otp \ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Successfully Registered.'); // Assert that the alert text contains the expected error message\n  return true;\n});\ncy.get(\"button[type='submit']\").click();\ncy.url().should('eq', 'https://hajirnext.vercel.app/dashboard');\n// window.location.reload(true);\ncy.wait(5000);\ncy.get(\"div[role='button'] span[class='MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-7mi4rk']\").click();",
+              "err": {},
+              "uuid": "44415d41-9323-49b1-9700-f16d4e5e9bdd",
+              "parentUUID": "6e09b32b-1fb2-4bb9-a709-8e444aac6ec8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44415d41-9323-49b1-9700-f16d4e5e9bdd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13373,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
