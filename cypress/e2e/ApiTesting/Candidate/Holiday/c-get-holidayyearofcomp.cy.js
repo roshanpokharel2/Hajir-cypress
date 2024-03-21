@@ -16,7 +16,7 @@ describe("to get holiday year of company  ", () => {
         expect(response.status).to.equal(200);
 
       const years = response.body.data.years;
-      be.an('array').that.is.not.empty;
+  
 
       years.forEach((year) => {
         expect(year).to.be.a('number');

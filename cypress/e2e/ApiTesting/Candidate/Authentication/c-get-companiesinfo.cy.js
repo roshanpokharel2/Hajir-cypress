@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { canToken } from './../../Constantsfile/constants';
+
 
 const baseUrl = Cypress.env('baseUrl');
 describe("GET companies info", () => {
@@ -8,7 +8,7 @@ describe("GET companies info", () => {
       method: 'GET',
       url: 'https://veloxlabs.net/api/v2/candidate/companies-info',
       headers: {
-        'Authorization': canToken 
+        'Authorization': "Bearer ${Cypress.env('cantoken')}"
                }
                
     }).then(response => {

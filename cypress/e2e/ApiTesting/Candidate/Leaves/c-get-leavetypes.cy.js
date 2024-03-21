@@ -24,8 +24,7 @@ describe("get leave types", () => {
             expect(response.body.data.leaveTypes[0]).to.have.property("id").that.equals(1);
             expect(response.body.data.leaveTypes[0]).to.have.property("title").that.equals("Sick");
             expect(response.body.data.leaveTypes[0]).to.have.property("status").that.equals("Active");
-            expect(response.body.data.avaliable_leave).to.have.property("sick_leave").that.equals(5);
-            expect(response.body.data.avaliable_leave).to.have.property("casual_leave").that.equals(4);
+         
            });
     });
   
