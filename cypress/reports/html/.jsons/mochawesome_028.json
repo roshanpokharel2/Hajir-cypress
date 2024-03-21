@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:45:47.575Z",
+    "end": "2024-03-19T08:45:48.448Z",
+    "duration": 873,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0fd6c288-d878-4f2c-b0a3-2be4e341035b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTesting\\Candidate\\companyJoinRequest\\c-post-deletecompofcan.cy.js",
+      "file": "cypress\\e2e\\ApiTesting\\Candidate\\companyJoinRequest\\c-post-deletecompofcan.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "19a9832a-b1d5-4d42-955e-102d18577133",
+          "title": "to delete company of candidate  ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to delete company of candidate   ",
+              "fullTitle": "to delete company of candidate   should be able to delete company of candidate   ",
+              "timedOut": null,
+              "duration": 655,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: `https://veloxlabs.net/api/v2/candidate/delete-company/${_constants.companyId}`,\n  headers: {\n    'Authorization': _constants.canToken\n  }\n}).then(response => {\n  expect(response.status).to.equal(200);\n  const responseData = response.body;\n  expect(responseData.status).to.equal('success');\n  expect(responseData.message).to.equal('Company Deleted Successfully');\n});",
+              "err": {},
+              "uuid": "efaad544-ff7d-430e-8601-67e85c0019eb",
+              "parentUUID": "19a9832a-b1d5-4d42-955e-102d18577133",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "efaad544-ff7d-430e-8601-67e85c0019eb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 655,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-03-19T08:39:58.125Z",
+    "end": "2024-03-19T08:40:40.845Z",
+    "duration": 42720,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ef6ec52b-6fa8-4f4d-95ae-1ea4cb9002ed",
+      "title": "",
+      "fullFile": "cypress\\e2e\\website-check\\updateholiday.cy.js",
+      "file": "cypress\\e2e\\website-check\\updateholiday.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9673cb89-07bb-4fac-acb3-ab365ad82ca4",
+          "title": "Should be able to update holiday ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update holiday succesfully ",
+              "fullTitle": "Should be able to update holiday  should update holiday succesfully ",
+              "timedOut": null,
+              "duration": 17040,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\updateholiday.cy.js\\\\Should be able to update holiday -- should update holiday succesfully (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\").click();\ncy.get(\"//div[@id=':r1q:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//span[normalize-space()='Setting']\").click();\ncy.get(\"//span[normalize-space()='Update Holiday']\").click();\ncy.fixture('Default_gov_holiday_2081').then(fileContent => {\n  // Find the file input element and attach the file\n  cy.get(\"label[role='button']\").attachFile({\n    fileContent: fileContent,\n    fileName: 'Default_gov_holiday_2081',\n    mimeType: 'application/vnd.ms-excel'\n  });\n});",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "e2cfa8c3-91f3-4c9b-885e-2aff0d90c1c2",
+              "parentUUID": "9673cb89-07bb-4fac-acb3-ab365ad82ca4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should be able to download current holiday",
+              "fullTitle": "Should be able to update holiday  should be able to download current holiday",
+              "timedOut": null,
+              "duration": 16293,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\updateholiday.cy.js\\\\Should be able to update holiday -- should be able to download current holiday (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\").click();\ncy.get(\"//div[@id=':r1q:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//span[normalize-space()='Setting']\").click();\ncy.get(\"//span[normalize-space()='Update Holiday']\").click();\ncy.get(\"//button[normalize-space()='Download Current Holiday File (.pdf)']\").click();",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "5091d775-993f-4122-ad0b-083e8827504c",
+              "parentUUID": "9673cb89-07bb-4fac-acb3-ab365ad82ca4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e2cfa8c3-91f3-4c9b-885e-2aff0d90c1c2",
+            "5091d775-993f-4122-ad0b-083e8827504c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 33333,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,6 +1,9 @@
 /// <reference types="Cypress" />
+
+import { empToken } from "../../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
-import { empToken } from '../../constants.js'; 
+
 
 describe("Company store Process", () => {
   it('should be able to store/register the company', () => {

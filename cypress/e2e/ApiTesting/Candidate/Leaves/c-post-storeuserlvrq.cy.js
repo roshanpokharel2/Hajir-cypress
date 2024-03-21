@@ -23,7 +23,7 @@ describe("store leave Details", () => {
         }
       }).then(response => {
         expect(response.body.status).to.equal("success");
-        expect(response.body.message).to.equal("Successfully Updated");
+        expect(response.body.message).to.equal("Successfully Saved");
            });
     });
   

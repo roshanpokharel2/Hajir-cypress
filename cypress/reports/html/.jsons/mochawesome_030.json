@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:46:08.368Z",
+    "end": "2024-03-19T08:46:09.820Z",
+    "duration": 1452,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c23030e-9811-4b20-9078-112a393abbc9",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTesting\\Candidate\\Holiday\\c-get-holidaycalnder.cy.js",
+      "file": "cypress\\e2e\\ApiTesting\\Candidate\\Holiday\\c-get-holidaycalnder.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b3417bcd-6f6f-4056-9500-78170a63f013",
+          "title": "to get holiday calender  ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to get holiday calender  ",
+              "fullTitle": "to get holiday calender   should be able to get holiday calender  ",
+              "timedOut": null,
+              "duration": 912,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: `https://veloxlabs.net/api/v2/candidate/holiday-calendar/${_constants.companyId}/${_constants.year}`,\n  headers: {\n    'Authorization': _constants.canToken\n  }\n}).then(response => {\n  expect(response.status).to.equal(200);\n  const holidays = response.body.data.holiday;\n  expect(holidays).to.be.an('array').that.is.not.empty;\n  holidays.forEach(holiday => {\n    expect(holiday).to.have.property('id').that.is.a('number');\n    expect(holiday).to.have.property('holiday_name').that.is.a('string').and.is.not.empty;\n  });\n});",
+              "err": {},
+              "uuid": "aa6f36cb-9e0a-4e27-894c-3246e395c200",
+              "parentUUID": "b3417bcd-6f6f-4056-9500-78170a63f013",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aa6f36cb-9e0a-4e27-894c-3246e395c200"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 912,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

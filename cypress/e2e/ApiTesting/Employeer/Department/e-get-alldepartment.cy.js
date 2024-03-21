@@ -1,6 +1,8 @@
 /// <reference types="Cypress" />
 
-import { empToken} from './../../../Constantsfile/constants';
+import { empToken } from "../../Constantsfile/constants";
+
+
 
 const baseUrl = Cypress.env('baseUrl');
 

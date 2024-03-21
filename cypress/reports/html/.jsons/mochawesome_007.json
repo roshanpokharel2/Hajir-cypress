@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2024-03-19T08:38:07.592Z",
+    "end": "2024-03-19T08:38:49.763Z",
+    "duration": 42171,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c33997f3-b8ea-47e8-a208-b6366b4a3d35",
+      "title": "",
+      "fullFile": "cypress\\e2e\\website-check\\Missingleave.cy.js",
+      "file": "cypress\\e2e\\website-check\\Missingleave.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68c28d27-27a6-47bd-99fd-a17dcb060804",
+          "title": "Adding Missing Leave",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able to Add Missing Leave",
+              "fullTitle": "Adding Missing Leave should be able to Add Missing Leave",
+              "timedOut": null,
+              "duration": 16309,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Missingleave.cy.js\\\\Adding Missing Leave -- should be able to Add Missing Leave (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\").click();\ncy.get(\"//div[@id=':r1q:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//span[normalize-space()='Setting']\").click();\ncy.get(\"//span[normalize-space()='Missing Leave']\").click();\ncy.get(\"//p[@class='MuiTypography-root MuiTypography-body1 mui-p2aloj']\").should('be.visible');\ncy.get(\"//input[@id=':r3t:']\").click();\ncy.get(\"//li[@id=':r3t:-option-1']\").click();\ncy.get(\"//input[@id=':r3v:']\").type('03102024');\ncy.get(\"div[role='combobox']\").click();\ncy.get(\"//li[normalize-space()='Sick']\").click();\ncy.get(\"//button[normalize-space()='Add']\").click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Missing leave Added Successfully.');\n  return true;\n});",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "382d2e10-c0c8-4c03-b262-e2d46e2fdb54",
+              "parentUUID": "68c28d27-27a6-47bd-99fd-a17dcb060804",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should show error while Adding existing Missing Leave",
+              "fullTitle": "Adding Missing Leave should show error while Adding existing Missing Leave",
+              "timedOut": null,
+              "duration": 13674,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      \"\\\\website-check\\\\Missingleave.cy.js\\\\Adding Missing Leave -- should show error while Adding existing Missing Leave (failed).png\"\n    ]\n  ]\n}",
+              "code": "cy.get(\"//a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\").click();\ncy.get(\"//div[@id=':r1q:']\").click();\ncy.get(\"//li[normalize-space()='25']\").click();\ncy.get(\"//button[normalize-space()='hasne_thau']\").click();\ncy.get(\"//span[normalize-space()='Setting']\").click();\ncy.get(\"//span[normalize-space()='Missing Leave']\").click();\ncy.get(\"//p[@class='MuiTypography-root MuiTypography-body1 mui-p2aloj']\").should('be.visible');\ncy.get(\"//input[@id=':r3t:']\").click();\ncy.get(\"//li[@id=':r3t:-option-1']\").click();\ncy.get(\"//input[@id=':r3v:']\").type('03102024');\ncy.get(\"div[role='combobox']\").click();\ncy.get(\"//li[normalize-space()='Sick']\").click();\ncy.get(\"//button[normalize-space()='Add']\").click();\ncy.on('window:alert', alertText => {\n  expect(alertText).to.contains('Missing leave Already existed ssfully.');\n  return true;\n});",
+              "err": {
+                "message": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']",
+                "estack": "Error: Syntax error, unrecognized expression: //a[@class='MuiButtonBase-root MuiListItemButton-root MuiListItemButton-gutters Mui-selected MuiListItemButton-root MuiListItemButton-gutters Mui-selected mui-1qvrk9j']\n    at Sizzle.error (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:8470:8)\n    at Sizzle.tokenize (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9122:11)\n    at Sizzle.select (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9549:20)\n    at Function.Sizzle [as find] (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:7774:9)\n    at jQuery.fn.init.find (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9805:11)\n    at new jQuery.fn.init (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:9920:40)\n    at Object.query (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:34703:10)\n    at $Cy.$$ (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:140248:57)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:132137:18)\n    at Object.subjectFn (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144040:16)\n    at $Cy.verifyUpcomingAssertions (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:143384:31)\n    at onRetry (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144031:15)\n    at retryQuery (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144044:10)\n    at <unknown> (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:144194:17)\n    at tryCatcher (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromiseCtx (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:1613:10)\n    at _drainQueueStep (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2411:12)\n    at _drainQueue (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://hajirnext.vercel.app/__cypress/runner/cypress_runner.js:2286:14)",
+                "diff": null
+              },
+              "uuid": "796fc247-1a0c-4f8b-b9fd-443a34790e71",
+              "parentUUID": "68c28d27-27a6-47bd-99fd-a17dcb060804",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "382d2e10-c0c8-4c03-b262-e2d46e2fdb54",
+            "796fc247-1a0c-4f8b-b9fd-443a34790e71"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 29983,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

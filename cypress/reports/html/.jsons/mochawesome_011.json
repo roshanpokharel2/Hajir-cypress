@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-19T08:41:09.229Z",
+    "end": "2024-03-19T08:41:10.117Z",
+    "duration": 888,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4adcd948-ea88-409a-b107-91d0bddbb460",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ApiTesting\\Candidate\\c-get-compofcan.cy.js",
+      "file": "cypress\\e2e\\ApiTesting\\Candidate\\c-get-compofcan.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2b6bccc2-0be9-4cc7-b399-d4d231522b38",
+          "title": "Get company of candidate  ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should be able get company of candidate ",
+              "fullTitle": "Get company of candidate   should be able get company of candidate ",
+              "timedOut": null,
+              "duration": 775,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'GET',\n  url: 'https://veloxlabs.net/api/v2/candidate/get-companies',\n  headers: {\n    'Authorization': _constants.canToken\n  }\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body.status).to.equal(\"success\");\n  expect(response.body.message).to.equal(\"Successfully Fetched\");\n  expect(response.body.data.active_companies).to.be.an('array').that.has.lengthOf.at.least(1);\n  expect(response.body.data.inactive_companies).to.be.an('array').that.has.lengthOf.at.least(1);\n  //  //active companies\n  //             response.body.data.active_companies.forEach(company => {\n  //             expect(company.id).to.be.a('number');\n  //             expect(company.name).to.be.a('string');\n  //             expect(company.office_hours).to.be.null;\n  //             expect(company.office_hour_start).to.be.a('string');\n  //             expect(company.office_hour_end).to.be.a('string');\n  //             expect(company.verified_status).to.be.a('string');\n  //             expect(company.is_approver).to.be.a('number');\n  //             expect(company.status).to.be.a('string');\n  //             if (company.clock_in_time !== null) {\n  //                 expect(company.clock_in_time.id).to.be.a('number');\n  //                 expect(company.clock_in_time.candidate_id).to.be.a('number');\n  //                 expect(company.clock_in_time.company_id).to.be.a('number');\n  //                 expect(company.clock_in_time.employee_status).to.be.a('string');\n  //                 expect(company.clock_in_time.start_time).to.be.a('number');\n  //                 expect(company.clock_in_time.end_time).to.be.a('number');\n  //                 expect(company.clock_in_time.early_clock_out).to.be.a('null');\n  //                 expect(company.clock_in_time.earning).to.be.null;\n  //                 expect(company.clock_in_time.approve_status).to.be.a('number');\n  //                 expect(company.clock_in_time.approver_id).to.be.a('number');\n  //                 expect(company.clock_in_time.overtime_earning).to.be.a('number');\n  //             }\n  //             });\n  //                    response.body.data.inactive_companies.forEach(company => {\n  //             // Asserting the 'id' field in the company object\n  //             expect(company.id).to.be.a('number');\n  //             // Asserting the 'name' field in the company object\n  //             expect(company.name).to.be.a('string');\n  //             // Asserting the 'generate_code' field in the company object\n  //             expect(company.generate_code).to.be.a('boolean');\n  //             // Asserting the 'phone' field in the company object\n  //             expect(company.phone).to.be.null;\n  //             // Asserting the 'address' field in the company object\n  //             expect(company.address).to.be.null;\n  //             // Asserting the 'office_hours' field in the company object\n  //             expect(company.office_hours).to.be.null;\n  //             // Asserting the 'office_hour_start' field in the company object\n  //             expect(company.office_hour_start).to.be.a('string');\n  //             // Asserting the 'office_hour_end' field in the company object\n  //             expect(company.office_hour_end).to.be.a('string');\n  //             // Asserting the 'verified_status' field in the company object\n  //             expect(company.verified_status).to.be.a('string');\n  //             // Asserting the 'is_approver' field in the company object\n  //             expect(company.is_approver).to.be.a('number');\n  //             // Asserting the 'status' field in the company object\n  //             expect(company.status).to.be.a('string');\n  //             // Asserting the 'clock_in_time' field in the company object\n  //             expect(company.clock_in_time).to.be.null;\n  //             });\n});",
+              "err": {},
+              "uuid": "b82c25a0-819d-43f2-b75c-3a044aa93be3",
+              "parentUUID": "2b6bccc2-0be9-4cc7-b399-d4d231522b38",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b82c25a0-819d-43f2-b75c-3a044aa93be3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 775,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
