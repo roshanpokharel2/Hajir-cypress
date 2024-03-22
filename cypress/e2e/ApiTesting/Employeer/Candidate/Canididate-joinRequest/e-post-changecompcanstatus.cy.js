@@ -8,11 +8,13 @@ const baseUrl = Cypress.env('baseUrl');
 
 describe("Post change company canidate status ", () => {
   it('should be able to change company canidate status', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
       url: `https://veloxlabs.net/api/v2/employer/candidate/change-status/${companyId}/${candidateId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}` 
                },
      body : {
         'status' : "Active"
@@ -24,4 +26,4 @@ describe("Post change company canidate status ", () => {
         })
     });
   });
-
+});

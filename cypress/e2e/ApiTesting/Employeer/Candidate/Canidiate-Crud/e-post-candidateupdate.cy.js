@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-import { companyId ,empToken , candidateId } from './../../../Constantsfile/constants';
+import { companyId ,empToken , candidateId, candidatePhone } from './../../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 describe("Update Candidate", () => {

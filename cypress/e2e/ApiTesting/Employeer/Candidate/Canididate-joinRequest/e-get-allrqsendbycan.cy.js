@@ -6,11 +6,13 @@ const baseUrl = Cypress.env('baseUrl');
 
 describe("Get akk request send by candidate ", () => {
   it('should view all request send by candidate ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
       url: `https://veloxlabs.net/api/v2/employer/${companyId}/invitation`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`,
                }
                
     }).then(response => {
@@ -32,4 +34,5 @@ describe("Get akk request send by candidate ", () => {
         })
     });
   });
+});
 });

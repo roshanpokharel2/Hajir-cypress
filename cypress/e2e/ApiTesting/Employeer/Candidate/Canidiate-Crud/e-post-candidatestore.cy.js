@@ -1,15 +1,16 @@
 /// <reference types="Cypress" />
+import { companyId, candidatePhone } from './../../../Constantsfile/constants';
 const baseUrl = Cypress.env('baseUrl');
-import { candidatePhone,companyId } from "../../../Constantsfile/constants.js";
-
 
 describe("Candidate store", () =>  {
   it('should be able to store candiate', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
       url: `https://veloxlabs.net/api/v2/employer/candidate/store/${companyId}`,
       headers: {
-        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${employerToken}`,
       },
       body: {
         
@@ -46,4 +47,5 @@ describe("Candidate store", () =>  {
       expect(response.body.data.token).to.be.a('string');
     });
   });
+});
 });
