@@ -1,26 +1,26 @@
 /// <reference types = "Cypress"/>
-import { canToken, companyId } from './../../Constantsfile/constants';
+import {  companyId } from './../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to get holiday year of company  ", () => {
     it('should be able to get holiday year of company  ', () => {
+      cy.fixture('bearerToken').then((tokenData) => {
+        const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
         url: `https://veloxlabs.net/api/v2/candidate/holiday-years/${companyId}`,
         headers: {
-          'Authorization': canToken 
+          'Authorization': `Bearer ${bearerToken}`,
                  }
                  
       }).then(response => {
         expect(response.status).to.equal(200);
-
-      const years = response.body.data.years;
-  
-
-      years.forEach((year) => {
+        const years = response.body.data.years;
+        years.forEach((year) => {
         expect(year).to.be.a('number');
                 });
+              });
       });
     });
 });

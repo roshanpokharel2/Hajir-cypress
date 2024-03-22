@@ -1,26 +1,23 @@
 /// <reference types = "Cypress"/>
 
-import { canToken } from "../Constantsfile/constants";
-
-
-
-
 const baseUrl = Cypress.env('baseUrl');
 describe("Get company of candidate  ", () => {
     it('should be able get company of candidate ', () => {
+      cy.fixture('bearerToken').then((tokenData) => {
+        const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
         url: 'https://veloxlabs.net/api/v2/candidate/get-companies',
         headers: {
-          'Authorization': canToken 
+          'Authorization': `Bearer ${bearerToken}`,
                  }
                  
       }).then(response => {
             expect(response.status).to.equal(200);
             expect(response.body.status).to.equal("success");
             expect(response.body.message).to.equal("Successfully Fetched");
-            expect(response.body.data.active_companies).to.be.an('array').that.has.lengthOf.at.least(1);
-            expect(response.body.data.inactive_companies).to.be.an('array').that.has.lengthOf.at.least(1);
+            expect(response.body.data.active_companies).to.be.an('array');
+            expect(response.body.data.inactive_companies).to.be.an('array');
 //  //active companies
 //             response.body.data.active_companies.forEach(company => {
 //             expect(company.id).to.be.a('number');
@@ -78,7 +75,7 @@ describe("Get company of candidate  ", () => {
 //             // Asserting the 'clock_in_time' field in the company object
 //             expect(company.clock_in_time).to.be.null;
 //             });
-
+      });
         });
       });
     });

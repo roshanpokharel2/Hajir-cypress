@@ -5,11 +5,13 @@ const baseUrl = Cypress.env('baseUrl');
 
 describe("to get enroll clock out report ", () => {
     it('should be able to get enroll clock out report   ', () => {
+      cy.fixture('bearerToken').then((tokenData) => {
+        const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/enroll-attendee/clock-out/${companyId}`,
+        url: `https://veloxlabs.net/api/v2/candidate/approver/enroll-attendee/clock-out/${companyId}`,
         headers: {
-          'Authorization': canToken 
+          'Authorization': `Bearer ${bearerToken}`,
                  }
                  
       }).then(response => {
@@ -30,8 +32,9 @@ describe("to get enroll clock out report ", () => {
         expect(candidate.candidate_name).to.be.a('string');
         expect(candidate.attendance_id).to.be.a('number');
         expect(candidate.start_time).to.be.a('string');
-        expect(candidate.end_time).to.be.a('string').or.equal('');
+        expect(candidate.end_time).to.be.a('string');
       });
+    });
       });
     });
 });

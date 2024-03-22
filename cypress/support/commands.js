@@ -34,4 +34,9 @@ Cypress.Commands.add('saveGeneratedOTP', (otp) => {
         console.log('Saved data to fixture:', data);
       });
   });
+  Cypress.Commands.add('saveAttendanceId', (attendanceId) => {
+    cy.writeFile('cypress/fixtures/attendanceId.json', { attendanceId: attendanceId }).then(() => {
+      console.log('Saved attendance ID to fixture:', attendanceId);
+    });
+  });
   

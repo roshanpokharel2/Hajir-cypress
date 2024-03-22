@@ -1,18 +1,19 @@
 /// <reference types="Cypress" />
 
-import { canToken, companyId } from "../../Constantsfile/constants";
+import { companyId } from "../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 
 describe("get user all types", () => {
   it('should be able to get all user types  ', () => {
-    
+    cy.fixture('bearerToken').then((tokenData) => {
+      const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
         url: `https://veloxlabs.net/api/v2/candidate/all-leaves/${companyId}`, 
         headers: {
-          'Authorization' : canToken
+          'Authorization': `Bearer ${bearerToken}`,
         },
       }).then(response => {
             expect(response.status).to.equal(200);
@@ -30,5 +31,5 @@ describe("get user all types", () => {
             expect(response.body.data.rejected_leaves).that.is.an("array");
            });
     });
-  
+  });
 });
