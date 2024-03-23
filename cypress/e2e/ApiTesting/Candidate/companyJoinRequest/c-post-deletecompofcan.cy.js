@@ -9,7 +9,7 @@ describe("to delete company of candidate  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/delete-company/${companyId}`,
+        url: `${baseUrl}/candidate/delete-company/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

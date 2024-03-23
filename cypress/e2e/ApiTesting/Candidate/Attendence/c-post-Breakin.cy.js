@@ -10,7 +10,7 @@ describe("to get notice  ", () => {
           const attendanceId = attendanceIdData.attendanceId;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/attendance-break-store/${attendanceId}`,
+        url: `${baseUrl}/candidate/attendance-break-store/${attendanceId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

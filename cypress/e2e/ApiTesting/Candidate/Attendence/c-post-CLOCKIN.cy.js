@@ -9,7 +9,7 @@ describe("to clock in", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/attendance-store/${companyId}`,
+        url: `${baseUrl}/candidate/attendance-store/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         }

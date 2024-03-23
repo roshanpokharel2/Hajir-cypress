@@ -9,7 +9,7 @@ describe("to get all join request  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/invitation/all`,
+        url: `${baseUrl}/candidate/invitation/all`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

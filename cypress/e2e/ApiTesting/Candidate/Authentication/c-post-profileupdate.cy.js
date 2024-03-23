@@ -19,7 +19,7 @@ describe("profile update of candidate", () => {
         // Send the request with FormData
         cy.request({
           method: 'POST',
-          url: 'https://veloxlabs.net/api/v2/candidate/profile-update',
+          url: `${baseUrl}/candidate/profile-update`,
           headers: {
             'Authorization': `Bearer ${bearerToken}`,
             'Content-Type': 'multipart/form-data', 

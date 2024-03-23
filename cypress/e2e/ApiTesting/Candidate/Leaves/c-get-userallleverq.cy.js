@@ -11,7 +11,7 @@ describe("get user all types", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/all-leaves/${companyId}`, 
+        url: `${baseUrl}/candidate/all-leaves/${companyId}`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

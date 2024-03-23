@@ -8,12 +8,12 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
     }
   },
-  env: {
-    staging: {
-      configFile: "cypress.env.staging.json"
-    },
-    production: {
-      configFile: "cypress.env.production.json"
-    }
-  }
+  // env: {
+  //   staging: {
+  //     configFile: "cypress.env.staging.json"
+  //   },
+  //   production: {
+  //     configFile: "cypress.env.production.json"
+  //   }
+  // }
 });

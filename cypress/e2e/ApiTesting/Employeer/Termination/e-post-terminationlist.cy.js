@@ -1,15 +1,16 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to store terminationlist  ", () => {
     it('should be able to store terminationlist ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/termination/list`,
+        url: `${baseUrl}/employer/termination/list`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
             "company_id":2
@@ -40,4 +41,5 @@ describe("to store terminationlist  ", () => {
         });
       });
     });
+});
 });

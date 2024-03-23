@@ -9,7 +9,7 @@ describe("to get holiday year of company  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/holiday-years/${companyId}`,
+        url: `${baseUrl}/candidate/holiday-years/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

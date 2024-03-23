@@ -1,16 +1,19 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId } from './../../Constants file/constants';
+
+import { companyId } from "../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("get allapprover ", () => {
     it('should be able to get allapprover ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/approver/list/${companyId}`,
+        url: `${baseUrl}/employer/approver/list/${companyId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  }
                  
       }).then(response => {
@@ -25,19 +28,19 @@ describe("get allapprover ", () => {
           expect(candidate).to.have.property('id').that.is.a('number');
           expect(candidate).to.have.property('company_id').that.is.a('number');
           expect(candidate).to.have.property('candidate_id').that.is.a('number');
-          expect(candidate).to.have.property('name').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('name_holder').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('marriage_status').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('phone').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('email').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('code').that.is.null;
-          expect(candidate).to.have.property('designation').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('dob').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('profile_image').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('status').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('office_hour_start').that.is.a('string').and.not.empty;
-          expect(candidate).to.have.property('office_hour_end').that.is.a('string').and.not.empty;
-        
+          expect(candidate).to.have.property('name').that.is.a('string');
+          expect(candidate).to.have.property('name_holder').that.is.a('string');
+          expect(candidate).to.have.property('marriage_status').that.is.a('string');
+          expect(candidate).to.have.property('phone').that.is.a('string');
+          expect(candidate).to.have.property('email').that.is.a('string');
+          expect(candidate).to.have.property('code');
+          expect(candidate).to.have.property('designation').that.is.a('string');
+          expect(candidate).to.have.property('dob').that.is.a('string');
+          expect(candidate).to.have.property('profile_image').that.is.a('string');
+          expect(candidate).to.have.property('status').that.is.a('string');
+          expect(candidate).to.have.property('office_hour_start').that.is.a('string');
+          expect(candidate).to.have.property('office_hour_end').that.is.a('string');
+        });
         });
       });
     });

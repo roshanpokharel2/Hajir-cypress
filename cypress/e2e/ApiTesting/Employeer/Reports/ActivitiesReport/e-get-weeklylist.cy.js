@@ -1,17 +1,18 @@
 /// <reference types="Cypress" />
-import { companyId, empToken, from_date, to_date } from './../../../Constantsfile/constants';
 
-
+import { companyId, from_date, to_date } from "../../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("get weekly list  ", () => {
   it('should be able to get weekly list ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/weekly-candidate-list/${companyId}?from_date=${from_date}&to_date=${to_date}`,
+      url: `${baseUrl}/employer/report/weekly-candidate-list/${companyId}?from_date=${from_date}&to_date=${to_date}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -28,5 +29,5 @@ describe("get weekly list  ", () => {
        });
         });
     });
-
+  });
 

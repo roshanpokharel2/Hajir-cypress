@@ -1,15 +1,19 @@
 /// <reference types="Cypress" />
-import { candidateId, companyId, empToken } from './../../../Constantsfile/constants';
+
+import { candidateId, companyId } from "../../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("candidate Details ", () => {
   it('should be able to view candidate details', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/candidate/get-candidate/${companyId}/${candidateId}`,
+      url: `${baseUrl}/employer/candidate/get-candidate/${companyId}/${candidateId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`,
                }
                
     }).then(response => {
@@ -46,5 +50,6 @@ describe("candidate Details ", () => {
         expect(response.data.departments[0].name).to.equal("Quality Assurance (QA)");
         expect(response.data.profile_image).to.equal("http://veloxlabs.net//storage/upload/24/03/17095232611000000774.jpg");
     });
+  });
   });
 });

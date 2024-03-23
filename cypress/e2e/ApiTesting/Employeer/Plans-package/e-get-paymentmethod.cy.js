@@ -1,14 +1,16 @@
 /// <reference types="Cypress" />
-import { empToken } from './../../Constantsfile/constants';
+
 const baseUrl = Cypress.env('baseUrl');
 
 describe("get payment method ", () =>  {
   it('should be able to get payment method ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/package/get-payment-methods',
+      url: `${baseUrl}/employer/package/get-payment-methods`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
 
                
@@ -31,5 +33,6 @@ describe("get payment method ", () =>  {
      
     });
   });
+});
 });
 });

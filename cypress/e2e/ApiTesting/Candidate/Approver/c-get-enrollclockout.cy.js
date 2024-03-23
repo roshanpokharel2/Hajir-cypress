@@ -9,7 +9,7 @@ describe("to get enroll clock out report ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/approver/enroll-attendee/clock-out/${companyId}`,
+        url: `${baseUrl}/candidate/approver/enroll-attendee/clock-out/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

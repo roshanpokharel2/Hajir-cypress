@@ -1,16 +1,18 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId } from './../../Constantsfile/constants';
+
+import { companyId } from "../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to get notice  ", () => {
     it('should be able to get notice ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/notice/${companyId}`,
+        url: `${baseUrl}/employer/notice/${companyId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  }
                  
       }).then(response => {
@@ -34,4 +36,4 @@ describe("to get notice  ", () => {
         });
       });
     });
-
+  });

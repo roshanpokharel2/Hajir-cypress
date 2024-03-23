@@ -8,7 +8,7 @@ describe("Post missing Leave", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/candidate/approver/missing-leave-submit', 
+        url: `${baseUrl}/candidate/approver/missing-leave-submit`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

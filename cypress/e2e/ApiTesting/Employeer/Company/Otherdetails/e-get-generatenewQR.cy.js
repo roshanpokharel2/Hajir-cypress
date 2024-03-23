@@ -1,15 +1,18 @@
 /// <reference types="Cypress" />
+
+import { companyId } from "../../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
-import { empToken, companyId } from '../../constants.js'; 
 
 describe("Get active company ", () => {
   it('should be able to get the active company of employer', () => {
-    
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/company/generate-new-qr/${companyId}`, 
+        url: `${baseUrl}/company/generate-new-qr/${companyId}`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization': `Bearer ${employerToken}`
         },
         
       }).then(response => {
@@ -20,7 +23,7 @@ describe("Get active company ", () => {
             expect(imgResponse.status).to.eq(200) 
             expect(imgResponse.headers['content-type']).to.include('image/png')
         });
-        
+      });
       });
     });
   

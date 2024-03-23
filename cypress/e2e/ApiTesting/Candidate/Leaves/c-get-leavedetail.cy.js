@@ -11,7 +11,7 @@ describe("Get leave Details", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/get-single-leave-details/${companyId}/139`, 
+        url: `${baseUrl}/candidate/get-single-leave-details/${companyId}/139`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

@@ -1,6 +1,7 @@
 /// <reference types = "Cypress"/>
-import { companyId, noticeId } from './../../Constantsfile/constants';
-import { canToken } from './../../Constantsfile/constants';
+
+import { companyId, noticeId } from "../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
@@ -8,7 +9,7 @@ describe("to read notice  ", () => {
     it('should be able to read notice ', () => {
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/notice/read?${noticeId}&${companyId}`,
+        url: `${baseUrl}/candidate/notice/read?${noticeId}&${companyId}`,
         headers: {
           'Authorization': canToken 
                  }

@@ -7,7 +7,7 @@ describe("Registration Process", () => {
   it('should be able to register and generate otp', () => {
     cy.request({
       method: 'POST',
-      url: 'https://veloxlabs.net/api/v2/candidate/register',
+      url: `${baseUrl}/v2/candidate/register`,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -36,7 +36,7 @@ describe("Registration Process", () => {
 
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/candidate/verify-opt',
+        url: `${baseUrl}/candidate/verify-opt`,
         headers: {
           'Content-Type': 'application/json',
         },

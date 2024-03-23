@@ -1,18 +1,20 @@
 /// <reference types="Cypress" />
 
-import { empToken } from "../../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 
 describe("Company store Process", () => {
   it('should be able to store/register the company', () => {
+   
+ cy.fixture('employerToken').then((tokenDataa) => {
+  const employerToken = tokenDataa.token;
     cy.fixture('Default_gov_holiday_2081.xls').then((fileContent) => {
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/employer/company/store', 
+        url: `${baseUrl}/employer/company/store`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization': `Bearer ${employerToken}`
         },
         body: {
           "name": "hajir",
@@ -25,7 +27,7 @@ describe("Company store Process", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal("success");
         expect(response.body.message).to.equal("Company created successfully");
-        
+      });
       });
     });
   });

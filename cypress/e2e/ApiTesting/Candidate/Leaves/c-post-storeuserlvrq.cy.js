@@ -11,7 +11,7 @@ describe("store leave Details", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/store-leave/${companyId}`, 
+        url: `${baseUrl}/candidate/store-leave/${companyId}`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

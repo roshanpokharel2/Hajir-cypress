@@ -1,15 +1,20 @@
 /// <reference types="Cypress" />
+
+import { companyId } from "../../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
-import { empToken } from '../../constants.js'; 
+
 
 describe("Company status update Process", () => {
   it('should be able to active/inactive the company', () => {
     
+ cy.fixture('employerToken').then((tokenDataa) => {
+  const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/company/status/${companyId}`, 
+        url: `${baseUrl}/employer/company/status/${companyId}`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization': `Bearer ${employerToken}`
         },
         body: {
           "status": "active"
@@ -18,7 +23,7 @@ describe("Company status update Process", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal("success");
         expect(response.body.message).to.equal("Company is activated successfully");
-        
+      });
       });
     
   });

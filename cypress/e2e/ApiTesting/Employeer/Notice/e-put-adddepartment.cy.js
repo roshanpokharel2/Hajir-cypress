@@ -1,15 +1,17 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to add department  ", () => {
     it('should be able to add department ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'PUT',
-        url: `https://veloxlabs.net/api/v2/employer/notice/add/department`,
+        url: `${baseUrl}/employer/notice/add/department`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
           
@@ -63,3 +65,4 @@ describe("to add department  ", () => {
       });
     });
   });
+});

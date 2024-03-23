@@ -9,7 +9,7 @@ describe("to submit report ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/approver/report-submit/${companyId}/${candidateId}/${attendanceId}`,
+        url: `${baseUrl}/candidate/approver/report-submit/${companyId}/${candidateId}/${attendanceId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  },

@@ -8,7 +8,7 @@ describe("GET profile with Authorization", () => {
       const bearerToken = tokenData.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/candidate/get-profile',
+      url: `${baseUrl}/candidate/get-profile`,
       headers: {
         'Authorization': `Bearer ${bearerToken}`
                }

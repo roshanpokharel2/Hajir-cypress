@@ -1,24 +1,28 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId, candidateId } from './../../Constants file/constants';
+
+import { candidateId, companyId } from "../../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("To send payment ", () => {
     it('should be able to send payment ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
+  
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/report/payment-submit/${companyId}/${candidateId}`,
+        url: `${baseUrl}/employer/report/payment-submit/${companyId}/${candidateId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
-            "salary_amount": 15000,
+            "salary_amount": 25000,
             "bonus": 2000,
             "tax_deduction" : 150,
             "penalty_deduction" : 1000,
-            "paid_amount" : 1000, 
-            "status" : "Unpaid", 
+            "paid_amount" : 25850, 
+            "status" : "paid", 
             "payment_for_month" : "2024-03-01"
         }
                  
@@ -26,7 +30,7 @@ describe("To send payment ", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
         expect(response.body.message).to.equal('Successfully Fetched.');
-        
+      });
         });
       });
     });

@@ -1,15 +1,15 @@
 /// <reference types="Cypress" />
 const baseUrl = Cypress.env('baseUrl');
-import { empToken } from '../../constants.js'; 
 
 describe("Get company by employer id", () => {
   it('should be able to get the company by employer id', () => {
-    
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: 'https://veloxlabs.net/api/v2/employer/company/employercompanies', 
+        url: `${baseUrl}/employer/company/employercompanies`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization': `Bearer ${employerToken}`
         },
         
       }).then(response => {
@@ -17,7 +17,7 @@ describe("Get company by employer id", () => {
         expect(response.body.status).to.equal("success");
         expect(response.body.message).to.equal("Successfully Fetched.");
         expect(response.body.active_companies.name).to.equal('string');
-        
+      });
       });
     });
   

@@ -1,22 +1,25 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId, candidateId } from './../../Constants file/constants';
+
+import { candidateId, companyId, missingleaveend, missingleavestart } from "../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to add missingleave  ", () => {
     it('should be able to add missingleave ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/candidate/missing-leave-submit`,
+        url: `${baseUrl}/employer/candidate/missing-leave-submit`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
-            "start_date": "3/17/2024",
-            "end_date": "3/17/2024",
-            "company_id" : 2,
-            "candidate_id" : 72,
+            "start_date": missingleavestart ,
+            "end_date": missingleaveend ,
+            "company_id" : companyId,
+            "candidate_id" : candidateId,
             "leave_type" : 1,
             "status": ""
         }
@@ -25,7 +28,7 @@ describe("to add missingleave  ", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
         expect(response.body.message).to.equal('Successfully Saved.');
-        
+      });
         });
       });
     });

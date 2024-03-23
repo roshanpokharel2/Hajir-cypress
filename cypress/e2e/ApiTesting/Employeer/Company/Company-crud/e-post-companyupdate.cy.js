@@ -1,16 +1,21 @@
 /// <reference types="Cypress" />
+
+import { companyId } from "../../../Constantsfile/constants";
+
 const baseUrl = Cypress.env('baseUrl');
-import { empToken, companyId} from '../../constants.js'; 
+
 
 describe("Company update Process", () => {
   it('should be able to update/edit the company', () => {
   
+ cy.fixture('employerToken').then((tokenDataa) => {
+  const employerToken = tokenDataa.token;
     cy.fixture('Default_gov_holiday_2081.xls').then((fileContent) => {
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/company/update/${companyId}`, 
+        url: `${baseUrl}/employer/company/update/${companyId}`, 
         headers: {
-          'Authorization' : empToken
+          'Authorization': `Bearer ${employerToken}`
         },
         body: {
           "name": "hajir",
@@ -23,7 +28,7 @@ describe("Company update Process", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal("success");
         expect(response.body.message).to.equal("Company updated successfully");
-        
+      });
       });
     });
   });

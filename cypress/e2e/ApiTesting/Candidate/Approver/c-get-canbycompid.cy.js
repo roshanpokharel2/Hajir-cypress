@@ -1,5 +1,5 @@
 /// <reference types = "Cypress"/>
-import { canToken, companyId } from './../../Constantsfile/constants';
+import {  companyId } from './../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
@@ -9,9 +9,9 @@ describe("to get candidate by company  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/approver/candidates/${companyId}`,
+        url: `${baseUrl}/candidate/approver/candidates/${companyId}`,
         headers: {
-          'Authorization': `Bearer ${bearerToken}`,
+          'Authorization': `Bearer ${bearerToken}`
                  }
                  
       }).then(response => {

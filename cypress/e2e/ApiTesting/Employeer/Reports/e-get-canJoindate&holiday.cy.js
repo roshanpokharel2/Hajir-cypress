@@ -1,17 +1,18 @@
 /// <reference types="Cypress" />
 
-import { candidateId, companyId, empToken } from '../../Constantsfile/constants';
-
+import { candidateId, companyId } from "../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("get canididate join date & holiday  ", () => {
   it('should be able to get join date and holiday ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/candidate-holidays/${companyId}/${candidateId}`,
+      url: `${baseUrl}/employer/report/candidate-holidays/${companyId}/${candidateId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -29,4 +30,5 @@ describe("get canididate join date & holiday  ", () => {
         });
     });
   });
+});
 });

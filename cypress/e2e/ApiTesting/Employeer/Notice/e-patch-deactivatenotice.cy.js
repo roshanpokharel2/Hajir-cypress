@@ -1,15 +1,19 @@
 /// <reference types = "Cypress"/>
-import { empToken, noticeId } from './../../Constants file/constants';
+
+import { noticeId } from "../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to deactivate notice  ", () => {
     it('should be able to deactivate notice ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'PATCH',
-        url: `https://veloxlabs.net/api/v2/employer//notice/deactive/${noticeId}`,
+        url: `${baseUrl}/employer//notice/deactive/${noticeId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  }
 
       }).then(response => {
@@ -49,6 +53,7 @@ describe("to deactivate notice  ", () => {
           expect(candidate).to.have.property('invitation_id').that.is.a('number').or.be.null;
           expect(candidate).to.have.property('read_at').that.is.null;
         });
+      });
       });
     });
   });

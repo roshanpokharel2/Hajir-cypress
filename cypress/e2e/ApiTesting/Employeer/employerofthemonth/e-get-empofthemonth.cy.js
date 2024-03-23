@@ -1,14 +1,16 @@
 /// <reference types="Cypress" />
-import { empToken } from './../../Constantsfile/constants';
+
 const baseUrl = Cypress.env('baseUrl');
 
 describe("Candidate store", () =>  {
   it('should be able to store candiate', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/employee-of-the-month',
+      url: `${baseUrl}/employer/employee-of-the-month`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                },
       body: {
           "year":2024 
@@ -30,6 +32,7 @@ describe("Candidate store", () =>  {
     expect(item).to.have.property('created_at').that.is.null;
     expect(item).to.have.property('updated_at').that.is.null;
     });
+  });
   });
 });
 });
