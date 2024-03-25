@@ -2,7 +2,7 @@
 
 import {  companyId, end_date, start_date } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("store leave Details", () => {

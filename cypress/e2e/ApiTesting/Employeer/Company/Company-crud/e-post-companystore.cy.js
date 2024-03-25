@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("Company store Process", () => {
@@ -9,7 +9,7 @@ describe("Company store Process", () => {
    
  cy.fixture('employerToken').then((tokenDataa) => {
   const employerToken = tokenDataa.token;
-    cy.fixture('Default_gov_holiday_2081.xls').then((fileContent) => {
+    // cy.fixture('Default_gov_holiday_2081.xls').then((fileContent) => {
       cy.request({
         method: 'POST',
         url: `${baseUrl}/employer/company/store`, 
@@ -17,11 +17,11 @@ describe("Company store Process", () => {
           'Authorization': `Bearer ${employerToken}`
         },
         body: {
-          "name": "hajir",
+          "name": "haji2553",
           "code": 1,
-          "date-type": "english",
-          "holiday_type": "custom",
-          "custom_holiday_file": fileContent  // Use the loaded file content here
+          "date_type": "English",
+          "holiday_type": "Government",
+          // "custom_holiday_file":   // Use the loaded file content here
         }
       }).then(response => {
         expect(response.status).to.equal(200);
@@ -31,4 +31,4 @@ describe("Company store Process", () => {
       });
     });
   });
-});
+// });

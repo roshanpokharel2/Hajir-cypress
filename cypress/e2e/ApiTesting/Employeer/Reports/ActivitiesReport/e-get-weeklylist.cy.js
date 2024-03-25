@@ -2,7 +2,7 @@
 
 import { companyId, from_date, to_date } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get weekly list  ", () => {
   it('should be able to get weekly list ', () => {

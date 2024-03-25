@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Get inactive company ", () => {
   it('should be able to get the inactive company of employer', () => {

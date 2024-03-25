@@ -2,7 +2,7 @@
 
 import { candidateId, companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get canididate join date & holiday  ", () => {
   it('should be able to get join date and holiday ', () => {

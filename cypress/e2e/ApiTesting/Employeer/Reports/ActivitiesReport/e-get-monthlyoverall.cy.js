@@ -3,7 +3,7 @@
 import { month, year } from "../../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get monthly overall   ", () => {
   it('should be able to get monthly overall ', () => {

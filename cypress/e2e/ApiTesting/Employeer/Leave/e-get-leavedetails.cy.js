@@ -2,7 +2,7 @@
 
 import { candidateId, companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get leavedetail ", () => {
     it('should be able to get leavedetail ', () => {
@@ -10,7 +10,7 @@ describe("get leavedetail ", () => {
         const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `${baseUrl}/employercandidateLeave/detail/${companyId}/${candidateId}`,
+        url: `${baseUrl}/employer/candidateLeave/detail/${companyId}/${candidateId}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`
                  }

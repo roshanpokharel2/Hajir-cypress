@@ -2,7 +2,7 @@
 
 import { candidateId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to approveleavefromcandidate ", () => {
     it('should be able to approveleavefromcandidate ', () => {
@@ -10,7 +10,7 @@ describe("to approveleavefromcandidate ", () => {
         const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `${baseUrl}/employer//candidateLeave/change-status/${candidateId}`,
+        url: `${baseUrl}/employer/candidateLeave/change-status/${candidateId}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`,
                  },
@@ -22,7 +22,7 @@ describe("to approveleavefromcandidate ", () => {
       }).then(response => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
-        expect(response.body.message).to.equal('Successfully Updated.');
+        expect(response.body.message).to.equal('Successfully Updated');
       });
         });
       });

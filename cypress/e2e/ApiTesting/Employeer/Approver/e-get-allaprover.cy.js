@@ -3,7 +3,8 @@
 import { companyId } from "../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get allapprover ", () => {
     it('should be able to get allapprover ', () => {

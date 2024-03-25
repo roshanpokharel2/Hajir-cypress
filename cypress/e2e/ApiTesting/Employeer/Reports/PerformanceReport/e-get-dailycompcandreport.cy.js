@@ -3,7 +3,7 @@
 import { candidateId, companyId } from "../../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To get dailycompcandreport ", () => {
     it('should be able to get dailycompcandreport ', () => {

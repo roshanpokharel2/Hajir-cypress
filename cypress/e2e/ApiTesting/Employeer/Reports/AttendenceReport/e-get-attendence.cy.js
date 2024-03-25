@@ -3,7 +3,7 @@
 import { companyId } from "../../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all attendence today ", () => {
   it('should be able to get today all attendence ', () => {

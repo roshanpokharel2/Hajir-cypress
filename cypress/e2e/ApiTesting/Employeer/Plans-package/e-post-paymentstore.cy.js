@@ -2,7 +2,7 @@
 
 import { packageId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get payment store", () =>  {
   it('should be able to get payment store', () => {

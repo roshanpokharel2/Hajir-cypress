@@ -5,11 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress-production": "CYPRESS_baseUrl=https://production.veloxlabs.net/api/v2 cypress run --config-file prod.config.js",
-    "cypress-staging": "CYPRESS_baseUrl=https://staging.veloxlabs.net/api/v2 cypress run --config-file stage.config.js"
+    "test:stage": "NODE_ENV=stage cypress run",
+    "test:prod": "NODE_ENV=prod cypress run"
   },
-  
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,6 +15,7 @@
     "cypress": "^13.6.6",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.4.5",
     "mochawesome-report-generator": "^6.2.0"
   }
 }

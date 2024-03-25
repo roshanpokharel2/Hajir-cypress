@@ -2,15 +2,15 @@
 
 import { candidateId, candidatePhone, canname, codee, companyId } from "../../../Constantsfile/constants";
 
+const baseUrl = Cypress.config('baseUrl');
 
-const baseUrl = Cypress.env('baseUrl');
 describe("Update Candidate", () => {
   it('should be able to update candidate', () => {
     cy.fixture('employerToken').then((tokenDataa) => {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
-      url: `${baseUrl}/employer/candidate/update/${companyId}/${candidateId}`,
+      url: `https://veloxlabs.net/api/v2/employer/candidate/update/${companyId}/${candidateId}`,
       headers: {
         'Authorization': `Bearer ${employerToken}`,
                },

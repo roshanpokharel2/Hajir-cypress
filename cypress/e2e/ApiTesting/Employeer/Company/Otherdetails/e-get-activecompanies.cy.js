@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("Get active company ", () => {

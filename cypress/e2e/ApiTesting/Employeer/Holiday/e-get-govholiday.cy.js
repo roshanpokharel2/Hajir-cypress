@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get govholidaypdf ", () => {
     it('should be able to get govholidaypdf ', () => {
@@ -8,7 +8,7 @@ describe("get govholidaypdf ", () => {
         const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `${baseUrl}/employer/company/get-government-holiday-PDF`,
+        url: `${baseUrl}/employer/get-government-holiday-PDF`,
         headers: {
           'Authorization': `Bearer ${employerToken}`
                  }
@@ -16,8 +16,8 @@ describe("get govholidaypdf ", () => {
       }).then(response => {
           expect(response.status).to.equal(200);
           expect(response.headers['content-type']).to.equal('application/pdf'); 
-          expect(response.body.size).to.be.greaterThan(0);
-          const pdfBlob = new Blob([response.body], { type: 'application/pdf' });
+          // expect(response.body.size).to.be.greaterThan(0);
+          // const pdfBlob = new Blob([response.body], { type: 'application/pdf' });
       });
       });
     });

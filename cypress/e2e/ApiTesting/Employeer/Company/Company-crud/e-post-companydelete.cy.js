@@ -3,7 +3,7 @@ import { companyId } from './../../../Constantsfile/constants';
 
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 const companyId= 1;
 
 describe("Company delete Process", () => {

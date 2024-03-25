@@ -2,7 +2,7 @@
 
 import { candidateId, companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To store employee of the month", () =>  {
   it('should be able to store employee of the month', () => {

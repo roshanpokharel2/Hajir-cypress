@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("GET profile with Authorization", () => {
   it('should show profile request with authorization header', () => {
     cy.fixture('employerToken').then((tokenDataa) => {

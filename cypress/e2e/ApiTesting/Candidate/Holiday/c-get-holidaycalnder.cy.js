@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import {  companyId, year } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get holiday calender  ", () => {
     it('should be able to get holiday calender  ', () => {

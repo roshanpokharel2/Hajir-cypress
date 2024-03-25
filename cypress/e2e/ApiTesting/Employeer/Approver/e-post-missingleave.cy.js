@@ -3,7 +3,7 @@
 import { candidateId, companyId, missingleaveend, missingleavestart } from "../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to add missingleave  ", () => {
     it('should be able to add missingleave ', () => {

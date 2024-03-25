@@ -2,7 +2,7 @@
 
 import { notificationId } from "../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all single notification marked ", () =>  {
   it('should be able to get all single notification marked', () => {

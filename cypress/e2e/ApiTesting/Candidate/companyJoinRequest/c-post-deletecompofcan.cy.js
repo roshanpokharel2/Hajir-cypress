@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import { canToken, companyId } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to delete company of candidate  ", () => {
     it('should be able to delete company of candidate   ', () => {

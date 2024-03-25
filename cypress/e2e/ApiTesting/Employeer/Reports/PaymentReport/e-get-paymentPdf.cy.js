@@ -2,7 +2,7 @@
 
 import { companyId, month, year } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get payment pdf", () =>  {
   it('should be able to get payment pdf', () => { 
@@ -11,7 +11,7 @@ describe("get payment pdf", () =>  {
 
     cy.request({
       method: 'GET',
-      url: `${baseUrl}/employer/package/payment-report-pdf/${companyId}/${year}/${month}`,
+      url: `${baseUrl}/employer/report/payment-report-pdf/${companyId}/${year}/${month}`,
       headers: {
         'Authorization': `Bearer ${employerToken}`
                }

@@ -1,7 +1,7 @@
 import { candidateId, companyId } from "../../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("send invitation", () => {
   it('should be able to send invitation', () => {

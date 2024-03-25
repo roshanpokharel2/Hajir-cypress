@@ -3,7 +3,7 @@
 import { candidateId, companyId, year } from "../../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To get yearlyreport ", () => {
     it('should be able to get yearlyreport ', () => {
@@ -12,7 +12,7 @@ describe("To get yearlyreport ", () => {
   
       cy.request({
         method: 'GET',
-        url: `${baseUrl}/employer/report/monthly-report/${companyId}/${candidateId}/${year}`,
+        url: `${baseUrl}/employer/report/yearly-report/${companyId}/${candidateId}/${year}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`
                  },

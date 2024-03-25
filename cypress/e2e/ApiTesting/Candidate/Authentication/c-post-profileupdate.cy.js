@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("profile update of candidate", () => {
   it('should update profile', () => {
     cy.fixture('bearerToken').then((tokenData) => {

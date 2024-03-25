@@ -3,7 +3,7 @@
 import { candidateId, companyId } from "../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to assign approver ", () => {
     it('should be able to assign approver ', () => {

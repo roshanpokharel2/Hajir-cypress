@@ -15,9 +15,9 @@ export const year = "2024"
 export const noticeId = 3;
 export const packageId = 4;
 export const notificationId = "dc5ca5b9-b807-4ea4-9f89-1244848d2691";
-export const attendancedate ="3/17/2024";
-export const missingleavestart="3/17/2024";
-export const missingleaveend="3/17/2024";
+export const attendancedate ="03/24/2024";
+export const missingleavestart="25-03-2024";
+export const missingleaveend="25-03-2024";
 
 
 //Candidate side 

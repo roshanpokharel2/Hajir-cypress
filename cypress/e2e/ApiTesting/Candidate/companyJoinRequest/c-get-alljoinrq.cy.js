@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get all join request  ", () => {
     it('should be able to get all join request  ', () => {

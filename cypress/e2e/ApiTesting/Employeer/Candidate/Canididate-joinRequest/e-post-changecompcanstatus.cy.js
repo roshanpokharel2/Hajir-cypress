@@ -2,8 +2,7 @@
 
 import { candidateId, companyId } from "../../../Constantsfile/constants";
 
-
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Post change company canidate status ", () => {
   it('should be able to change company canidate status', () => {

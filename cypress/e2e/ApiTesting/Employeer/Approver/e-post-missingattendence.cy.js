@@ -3,7 +3,7 @@
 import { attendancedate, candidateId, companyId } from "../../Constantsfile/constants";
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to add missingattendance  ", () => {
     it('should be able to add missingattendance ', () => {
@@ -19,7 +19,7 @@ describe("to add missingattendance  ", () => {
             "start_time": "8:00:00",
             "end_time": "2:00:00",
             "company_id" : companyId,
-            "candidate_id" : candidateId,
+            "candidate_id" : 3,
             "attendance_date" : attendancedate,
             "overtime": "00:30"
         }
@@ -27,7 +27,7 @@ describe("to add missingattendance  ", () => {
       }).then(response => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
-        expect(response.body.message).to.equal('Successfully Saved.');
+        expect(response.body.message).to.equal('Successfully Saved');
       });
         });
       });

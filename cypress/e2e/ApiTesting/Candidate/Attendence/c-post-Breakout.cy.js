@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to update break  ", () => {
     it('should be able to update break ', () => {

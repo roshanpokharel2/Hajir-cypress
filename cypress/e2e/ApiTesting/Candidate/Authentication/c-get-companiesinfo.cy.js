@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("GET companies info", () => {
   it('should show companies info', () => {
     cy.fixture('bearerToken').then((tokenData) => {

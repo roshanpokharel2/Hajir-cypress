@@ -2,7 +2,7 @@
 
 import { companyId } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all candidate ", () => {
   it('should be able to get all candidate ', () => {

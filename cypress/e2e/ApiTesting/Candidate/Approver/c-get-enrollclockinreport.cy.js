@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import { companyId } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get enroll clock in report ", () => {
     it('should be able to get enroll clock in report   ', () => {

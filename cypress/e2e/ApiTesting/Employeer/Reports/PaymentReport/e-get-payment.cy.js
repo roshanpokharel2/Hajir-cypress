@@ -2,7 +2,7 @@
 
 import { companyId, month, year } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get payment report ", () =>  {
   it('should be able to get payment report', () => {

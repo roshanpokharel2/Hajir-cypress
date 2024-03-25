@@ -1,4 +1,4 @@
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get candidate code generated ", () => {
   it('should be able to get candidate code generated', () => {

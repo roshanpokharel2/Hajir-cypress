@@ -2,7 +2,7 @@
 
 import { companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Post missing attendence", () => {
   it('should be able to post missing attendence  ', () => {
