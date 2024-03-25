@@ -1,20 +1,16 @@
 /// <reference types="Cypress" />
 
-import { canToken, companyId } from "../../Constantsfile/constants";
-
-
-
+import { companyId } from "../../Constantsfile/constants";
 const baseUrl = Cypress.env('baseUrl');
-
-
 describe("Post missing Leave", () => {
   it('should be able to post missing Leave  ', () => {
-    
+    cy.fixture('bearerToken').then((tokenData) => {
+      const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
         url: 'https://veloxlabs.net/api/v2/candidate/approver/missing-leave-submit', 
         headers: {
-          'Authorization' : canToken
+          'Authorization': `Bearer ${bearerToken}`,
         },
         body :{
             'start_time':"8:00:00",
@@ -29,7 +25,7 @@ describe("Post missing Leave", () => {
             expect(response.status).to.equal(200);
             expect(response.body.status).to.equal("success");
             expect(response.body.message).to.equal("Successfully Saved");
-            
+      });
            });
     });
   

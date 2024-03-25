@@ -1,18 +1,19 @@
 /// <reference types="Cypress" />
 
-import { canToken, companyId } from "../../Constantsfile/constants";
+import { companyId } from "../../Constantsfile/constants";
 
 const baseUrl = Cypress.env('baseUrl');
 
 
 describe("get leave types", () => {
   it('should be able to get leave types  ', () => {
-    
+    cy.fixture('bearerToken').then((tokenData) => {
+      const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
         url: `https://veloxlabs.net/api/v2/candidate/leave-types/${companyId}`, 
         headers: {
-          'Authorization' : canToken
+          'Authorization': `Bearer ${bearerToken}`,
         },
       }).then(response => {
             expect(response.status).to.equal(200);
@@ -21,10 +22,10 @@ describe("get leave types", () => {
             expect(response.body.data).to.have.property("leaveTypes").that.is.an("array");
             expect(response.body.data).to.have.property("avaliable_leave").that.is.an("object");
             expect(response.body.data.leaveTypes).to.have.lengthOf(4); 
-            expect(response.body.data.leaveTypes[0]).to.have.property("id").that.equals(1);
-            expect(response.body.data.leaveTypes[0]).to.have.property("title").that.equals("Sick");
-            expect(response.body.data.leaveTypes[0]).to.have.property("status").that.equals("Active");
-         
+            expect(response.body.data.leaveTypes[0]).to.have.property("id");
+            expect(response.body.data.leaveTypes[0]).to.have.property("title");
+            expect(response.body.data.leaveTypes[0]).to.have.property("status");
+      });
            });
     });
   

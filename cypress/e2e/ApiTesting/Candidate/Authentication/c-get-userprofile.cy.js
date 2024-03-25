@@ -14,14 +14,14 @@ describe("GET profile with Authorization", () => {
                }
                
     }).then(response => {
-           expect(response.status).to.equal(200);
-      const candidateData = response.body.data;
-      expect(candidateData.id).to.be.a('number');
+        expect(response.status).to.equal(200);
+        const candidateData = response.body.data;
+        expect(candidateData.id).to.be.a('number');
         expect(candidateData.name).to.be.a('string'); // Adjusted expectation
-      expect(parseInt(candidateData.phone)).to.be.a('number');
-      expect(candidateData.email).to.be.a('string');
-           const dobDate = new Date(candidateData.dob);
-expect(dobDate).to.be.a('Date');
+        expect(parseInt(candidateData.phone)).to.be.a('number');
+        expect(candidateData.email).to.be.a('string');
+        const dobDate = new Date(candidateData.dob);
+        expect(dobDate).to.be.a('Date');
         expect(candidateData.type).to.equal('candidate');
     })
     });

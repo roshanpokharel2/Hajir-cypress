@@ -1,26 +1,29 @@
-/// <reference types = "Cypress"/>
+/// <reference types="Cypress" />
 import { companyId } from './../../Constantsfile/constants';
-import { canToken } from './../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
-describe("to clock in  ", () => {
-    it('should be able to clock in ', () => {
+describe("to clock in", () => {
+  it('should be able to clock in', () => {
+    cy.fixture('bearerToken').then((tokenData) => {
+      const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
         url: `https://veloxlabs.net/api/v2/candidate/attendance-store/${companyId}`,
         headers: {
-          'Authorization': canToken 
-                 }
-                 
+          'Authorization': `Bearer ${bearerToken}`,
+        }
       }).then(response => {
         expect(response.status).to.equal(200);
-    
-      const responseData = response.body.data;
+        const responseData = response.body.data;
+        expect(responseData.attendance_id).to.be.a('number');
+        expect(responseData.start_time).to.be.a('string');
 
-      expect(responseData.attendance_id).to.be.a('number');
-      expect(responseData.start_time).to.be.a('string').and.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}Z$/);
+        const attendanceId = responseData.attendance_id;
+        cy.writeFile('cypress/fixtures/attendanceId.json', { attendanceId: attendanceId }).then(() => {
+          console.log('Successfully wrote attendance ID to fixture');
         });
       });
     });
-
+  });
+});

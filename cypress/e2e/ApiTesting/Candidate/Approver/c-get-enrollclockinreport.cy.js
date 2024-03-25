@@ -1,15 +1,18 @@
 /// <reference types = "Cypress"/>
-import { canToken, companyId } from './../../Constantsfile/constants';
+import { companyId } from './../../Constantsfile/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to get enroll clock in report ", () => {
     it('should be able to get enroll clock in report   ', () => {
+      
+ cy.fixture('bearerToken').then((tokenData) => {
+  const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/enroll-attendee/clock-in/${companyId}`,
+        url: `https://veloxlabs.net/api/v2/candidate/approver/enroll-attendee/clock-in/${companyId}`,
         headers: {
-          'Authorization': canToken 
+          'Authorization': `Bearer ${bearerToken}`,
                  }
                  
       }).then(response => {
@@ -23,5 +26,6 @@ describe("to get enroll clock in report ", () => {
       expect(leave_count).to.be.a('number');
       expect(clock_out_candidates).to.be.an('array');
       });
+    });
     });
 });

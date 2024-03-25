@@ -1,16 +1,19 @@
 /// <reference types = "Cypress"/>
 
-import { canToken, companyId } from '../Constantsfile/constants';
+import { companyId } from '../../Constantsfile/constants';
 
 
 const baseUrl = Cypress.env('baseUrl');
 describe("Get candidate today detail  ", () => {
     it('should be able get candidate today detail ', () => {
+     
+ cy.fixture('bearerToken').then((tokenData) => {
+  const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
         url: `https://veloxlabs.net/api/v2/candidate/today-details/${companyId}`,
         headers: {
-          'Authorization': canToken 
+          'Authorization': `Bearer ${bearerToken}`,
                  }
                  
       }).then(response => {
@@ -41,7 +44,7 @@ describe("Get candidate today detail  ", () => {
             expect(response.body.data.total_break_time_taken).to.be.a('string');
             expect(response.body.data.breaks).to.deep.equal([]);
             expect(response.body.data.current_break).to.be.a('string');
-
+      });
         });
       });
     });
