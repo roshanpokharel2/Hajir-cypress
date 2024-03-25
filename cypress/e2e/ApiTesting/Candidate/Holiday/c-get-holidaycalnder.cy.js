@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import {  companyId, year } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get holiday calender  ", () => {
     it('should be able to get holiday calender  ', () => {
@@ -9,7 +9,7 @@ describe("to get holiday calender  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/holiday-calendar/${companyId}/${year}`,
+        url: `${baseUrl}/candidate/holiday-calendar/${companyId}/${year}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

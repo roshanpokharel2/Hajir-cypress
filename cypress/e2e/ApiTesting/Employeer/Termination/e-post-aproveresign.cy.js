@@ -1,15 +1,16 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to approve resign  ", () => {
     it('should be able to approve resign ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/termination`,
+        url: `${baseUrl}/employer/termination`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
             "termination_id":1
@@ -36,7 +37,7 @@ describe("to approve resign  ", () => {
         expect(terminationData).to.have.property('date').that.is.a('string').and.not.empty;
         expect(terminationData).to.have.property('created_at').that.is.a('string').and.not.empty;
         expect(terminationData).to.have.property('updated_at').that.is.a('string').and.not.empty;
-        
+      })
         });
       });
     });

@@ -1,14 +1,14 @@
 /// <reference types="Cypress" />
 
 import { companyId } from "../../Constantsfile/constants";
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("Post missing Leave", () => {
   it('should be able to post missing Leave  ', () => {
     cy.fixture('bearerToken').then((tokenData) => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/candidate/approver/missing-leave-submit', 
+        url: `${baseUrl}/candidate/approver/missing-leave-submit`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

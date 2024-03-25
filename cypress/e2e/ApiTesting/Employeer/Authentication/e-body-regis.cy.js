@@ -1,13 +1,13 @@
 /// <reference types="Cypress" />
 import { employerPhone } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Registration Process", () => {
   it('should be able to register and generate otp', () => {
     cy.request({
       method: 'POST',
-      url: 'https://veloxlabs.net/api/v2/employer/register',
+      url: `${baseUrl}/employer/register`,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -36,7 +36,7 @@ describe("Registration Process", () => {
 
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/employer/verify-opt',
+        url:  `${baseUrl}/employer/verify-opt`,
         headers: {
           'Content-Type': 'application/json',
         },

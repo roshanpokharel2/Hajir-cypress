@@ -1,15 +1,19 @@
 /// <reference types = "Cypress"/>
-import { empToken, noticeId } from './../../Constants file/constants';
+
+import { noticeId } from "../../Constantsfile/constants";
+
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to get noticebyid  ", () => {
     it('should be able to get noticebyid ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/notice/${noticeId}`,
+        url: `${baseUrl}/employer/notice/${noticeId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  }
                
       }).then(response => {
@@ -49,6 +53,7 @@ describe("to get noticebyid  ", () => {
           expect(candidate).to.have.property('invitation_id').that.is.a('number').or.be.null;
           expect(candidate).to.have.property('read_at').that.is.null;
         });
+      });
       });
     });
 });

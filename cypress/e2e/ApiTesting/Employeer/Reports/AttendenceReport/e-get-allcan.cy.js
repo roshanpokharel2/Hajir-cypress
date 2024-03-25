@@ -1,15 +1,18 @@
 /// <reference types="Cypress" />
-import { companyId, empToken} from './../../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { companyId } from "../../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all candidate ", () => {
   it('should be able to get all candidate ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET', 
-      url: `https://veloxlabs.net/api/v2/employer/report/today/all-candidate/${companyId}`,
+      url: `${baseUrl}/employer/report/today/all-candidate/${companyId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -22,5 +25,5 @@ describe("get all candidate ", () => {
         });
        });
         });
-
+      });
 

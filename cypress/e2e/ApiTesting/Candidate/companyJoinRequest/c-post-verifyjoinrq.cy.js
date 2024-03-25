@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import { companyId } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to verify all join request  ", () => {
     it('should be able to verify all join request  ', () => {
@@ -9,7 +9,7 @@ describe("to verify all join request  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/invitation/invitation-update/${companyId}`,
+        url: `${baseUrl}/candidate/invitation/invitation-update/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

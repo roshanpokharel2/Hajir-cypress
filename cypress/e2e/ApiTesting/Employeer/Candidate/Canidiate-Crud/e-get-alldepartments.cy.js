@@ -1,16 +1,16 @@
 /// <reference types="Cypress" />
 
-import { empToken} from './../../../Constantsfile/constants';
-
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all departments ", () => {
   it('should be able to get all departments', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/all-departments',
+      url: `${baseUrl}/employer/all-departments`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`,
                }
                
     }).then(response => {
@@ -23,7 +23,7 @@ describe("get all departments ", () => {
   expect(response.data.departments[0].name).to.equal("Administration");
   expect(response.data.departments[1].id).to.equal(2);
   expect(response.data.departments[1].name).to.equal("Information Technology");
-  
+    });
     });
   });
 });

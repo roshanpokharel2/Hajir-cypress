@@ -1,15 +1,19 @@
 /// <reference types="Cypress" />
 
+import { month, year } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get monthly list  ", () => {
   it('should be able to get monthly list ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/monthly-candidate-list/2?month=${month}&year=${year}`,
+      url: `${baseUrl}/employer/report/monthly-candidate-list/2?month=${month}&year=${year}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -26,4 +30,4 @@ describe("get monthly list  ", () => {
         });
     });
 
-
+  });

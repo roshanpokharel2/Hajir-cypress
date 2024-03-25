@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all candidate ", () => {
   it('should be able to get all candidate', () => {
@@ -8,7 +8,7 @@ describe("get all candidate ", () => {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/2/invitation/all-candidates',
+      url: `${baseUrl}/employer/2/invitation/all-candidates`,
       headers: {
         'Authorization': `Bearer ${employerToken}`, 
                }

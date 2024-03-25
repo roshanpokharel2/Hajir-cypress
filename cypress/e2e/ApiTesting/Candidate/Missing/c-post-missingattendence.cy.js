@@ -2,10 +2,7 @@
 
 import { companyId } from "../../Constantsfile/constants";
 
-
-
-const baseUrl = Cypress.env('baseUrl');
-
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Post missing attendence", () => {
   it('should be able to post missing attendence  ', () => {
@@ -14,7 +11,7 @@ describe("Post missing attendence", () => {
   const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: 'https://veloxlabs.net/api/v2/candidate/approver/missing-attendance-submit', 
+        url: `${baseUrl}/candidate/approver/missing-attendance-submit`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

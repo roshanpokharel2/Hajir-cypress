@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("profile update of candidate", () => {
   it('should update profile', () => {
     cy.fixture('bearerToken').then((tokenData) => {
@@ -19,7 +19,7 @@ describe("profile update of candidate", () => {
         // Send the request with FormData
         cy.request({
           method: 'POST',
-          url: 'https://veloxlabs.net/api/v2/candidate/profile-update',
+          url: `${baseUrl}/candidate/profile-update`,
           headers: {
             'Authorization': `Bearer ${bearerToken}`,
             'Content-Type': 'multipart/form-data', 

@@ -1,16 +1,20 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId, candidateId } from './../../Constants file/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { candidateId, companyId } from "../../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To get weeklyreport ", () => {
     it('should be able to get weeklyreport ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
+  
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/report/weekly-report/${companyId}/${candidateId}`,
+        url: `${baseUrl}/employer/report/weekly-report/${companyId}/${candidateId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
                  
       }).then(response => {
@@ -31,3 +35,4 @@ describe("To get weeklyreport ", () => {
       });
     });
 
+  });

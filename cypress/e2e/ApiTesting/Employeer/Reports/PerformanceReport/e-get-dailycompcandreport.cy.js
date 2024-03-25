@@ -1,16 +1,20 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId, candidateId } from './../../Constants file/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { candidateId, companyId } from "../../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To get dailycompcandreport ", () => {
     it('should be able to get dailycompcandreport ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
+  
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/report/daily-report/${companyId}/${candidateId}`,
+        url: `${baseUrl}/employer/report/daily-report/${companyId}/${candidateId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
                  
       }).then(response => {
@@ -31,7 +35,7 @@ describe("To get dailycompcandreport ", () => {
         expect(attendanceData).to.have.property('totalearning').that.is.a('number').and.equal(0);
         expect(attendanceData).to.have.property('allowance').that.is.a('number').and.equal(0);
         expect(attendanceData).to.have.property('status').that.is.a('string').and.equal('Absent');
-        
+      });
         });
       });
     });

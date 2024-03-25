@@ -2,7 +2,7 @@
 
 import {  companyId, end_date, start_date } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("store leave Details", () => {
@@ -11,7 +11,7 @@ describe("store leave Details", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/store-leave/${companyId}`, 
+        url: `${baseUrl}/candidate/store-leave/${companyId}`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

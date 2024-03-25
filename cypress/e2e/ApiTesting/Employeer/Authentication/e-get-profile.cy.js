@@ -1,13 +1,13 @@
 /// <reference types="Cypress" />
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("GET profile with Authorization", () => {
   it('should show profile request with authorization header', () => {
     cy.fixture('employerToken').then((tokenDataa) => {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/get-profile',
+      url: `${baseUrl}/employer/get-profile`,
       headers: {
         'Authorization': `Bearer ${employerToken}`
                }

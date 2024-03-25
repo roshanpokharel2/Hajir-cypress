@@ -2,7 +2,7 @@
 
 import { companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("get leave types", () => {
@@ -11,7 +11,7 @@ describe("get leave types", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/leave-types/${companyId}`, 
+        url: `${baseUrl}/candidate/leave-types/${companyId}`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

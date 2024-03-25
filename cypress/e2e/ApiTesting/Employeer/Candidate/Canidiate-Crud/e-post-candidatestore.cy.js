@@ -1,6 +1,8 @@
 /// <reference types="Cypress" />
-import { companyId, candidatePhone } from './../../../Constantsfile/constants';
-const baseUrl = Cypress.env('baseUrl');
+
+import { candidatePhone, canname, codee, companyId } from "../../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Candidate store", () =>  {
   it('should be able to store candiate', () => {
@@ -8,15 +10,15 @@ describe("Candidate store", () =>  {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
-      url: `https://veloxlabs.net/api/v2/employer/candidate/store/${companyId}`,
+      url: `${baseUrl}/employer/candidate/store/${companyId}`,
       headers: {
         'Authorization': `Bearer ${employerToken}`,
       },
       body: {
         
             "name_holder" : "Mr", //required string
-            "name": "Roshan Pokharel", // required
-            "code": "C-2222" , // required
+            "name": canname, // required
+            "code": codee , // required
             "contact" : candidatePhone, // required
             "designation" : "QA", // required 
             "marriage_status" : "Unmarried", //required enum['Married', 'Unmarried'] 
@@ -46,6 +48,7 @@ describe("Candidate store", () =>  {
       expect(response.body.message).to.equal("Logged in successfully"); 
       expect(response.body.data.token).to.be.a('string');
     });
+
   });
 });
 });

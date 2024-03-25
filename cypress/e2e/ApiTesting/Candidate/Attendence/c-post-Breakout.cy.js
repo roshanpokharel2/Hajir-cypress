@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to update break  ", () => {
     it('should be able to update break ', () => {
@@ -11,7 +11,7 @@ describe("to update break  ", () => {
             
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/attendance-break-update/${breakId}`,
+        url: `${baseUrl}/api/v2/candidate/attendance-break-update/${breakId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`, 
                  }

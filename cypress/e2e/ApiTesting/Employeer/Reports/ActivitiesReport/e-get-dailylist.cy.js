@@ -1,15 +1,19 @@
 /// <reference types="Cypress" />
-import { companyId, employerToken, todaydate } from './../../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { companyId } from "../../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get daily list  ", () => {
   it('should be able to get daily list ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/daily-candidate-list/${companyId}?date=2023-03-10`,
+      url: `${baseUrl}/employer/report/daily-candidate-list/${companyId}?date=2023-03-10`,
       headers: {
-        'Authorization': employerToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -25,5 +29,5 @@ describe("get daily list  ", () => {
     });
         });
     });
-
+  });
 

@@ -1,21 +1,25 @@
 /// <reference types="Cypress" />
-import { companyId ,empToken , candidateId, candidatePhone } from './../../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { candidateId, candidatePhone, canname, codee, companyId } from "../../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
+
 describe("Update Candidate", () => {
   it('should be able to update candidate', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
       url: `https://veloxlabs.net/api/v2/employer/candidate/update/${companyId}/${candidateId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`,
                },
                
                body: {
         
                 "name_holder" : "Mr", //required string
-                "name": "Roshan Pokharell", // required
-                "code": "C-22222" , // required
+                "name": canname, // required
+                "code": codee , // required
                 "contact" : candidatePhone, // required
                 "designation" : "QA", // required 
                 "marriage_status" : "Unmarried", //required enum['Married', 'Unmarried'] 
@@ -43,6 +47,7 @@ describe("Update Candidate", () => {
           expect(response.status).to.equal(200); 
           expect(response.body.status).to.equal("success"); 
          });
+        });
       });
     });
     

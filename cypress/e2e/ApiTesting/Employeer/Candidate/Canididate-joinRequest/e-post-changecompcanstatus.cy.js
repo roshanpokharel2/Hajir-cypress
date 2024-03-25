@@ -1,10 +1,8 @@
 /// <reference types="Cypress" />
 
-import { candidateId, companyId , empToken} from "../../../Constantsfile/constants";
+import { candidateId, companyId } from "../../../Constantsfile/constants";
 
-
-
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Post change company canidate status ", () => {
   it('should be able to change company canidate status', () => {
@@ -12,7 +10,7 @@ describe("Post change company canidate status ", () => {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
-      url: `https://veloxlabs.net/api/v2/employer/candidate/change-status/${companyId}/${candidateId}`,
+      url: `${baseUrl}/employer/candidate/change-status/${companyId}/${candidateId}`,
       headers: {
         'Authorization': `Bearer ${employerToken}` 
                },

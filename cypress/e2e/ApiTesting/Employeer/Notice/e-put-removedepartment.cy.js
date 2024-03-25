@@ -1,15 +1,16 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
 
 const baseUrl = Cypress.env('baseUrl');
 
 describe("to remove department  ", () => {
     it('should be able to remove department ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/employer/notice/remove/department`,
+        url: `${baseUrl}/employer/notice/remove/department`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
         body: {
           "notice_id":3,
@@ -58,3 +59,4 @@ describe("to remove department  ", () => {
       });
     });
   });
+});

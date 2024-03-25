@@ -1,18 +1,22 @@
 /// <reference types="Cypress" />
-import { empToken } from '../../Constantsfile/constants';
-const baseUrl = Cypress.env('baseUrl');
+
+import { candidateId, companyId } from "../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To store employee of the month", () =>  {
   it('should be able to store employee of the month', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'POST',
-      url: 'https://veloxlabs.net/api/v2/employer/employee-of-the-month',
+      url: `${baseUrl}/employer/employee-of-the-month`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                },
       body: {
-          "company_id":2,
-          "candidate_id":2,
+          "company_id":companyId,
+          "candidate_id":candidateId,
           "date": "2021-3-10" 
       }
 
@@ -28,7 +32,7 @@ describe("To store employee of the month", () =>  {
   expect(response.body.data).to.have.property('date').that.is.a('string');
   expect(response.body.data).to.have.property('created_at').that.is.a('string');
   expect(response.body.data).to.have.property('updated_at').that.is.a('string'); 
-     
+    });
     });
   });
 });

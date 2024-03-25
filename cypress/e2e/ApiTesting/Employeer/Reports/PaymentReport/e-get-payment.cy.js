@@ -1,15 +1,19 @@
 /// <reference types="Cypress" />
-import { empToken, companyId, month, year } from './../../../Constantsfile/constants';
-const baseUrl = Cypress.env('baseUrl');
+
+import { companyId, month, year } from "../../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get payment report ", () =>  {
   it('should be able to get payment report', () => {
-      
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
+  
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/payment-report/${companyId}/${year}/${month}`,
+      url: `${baseUrl}/employer/report/payment-report/${companyId}/${year}/${month}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
 
     }).then(response => {
@@ -36,3 +40,4 @@ describe("get payment report ", () =>  {
   });
   });
 
+});

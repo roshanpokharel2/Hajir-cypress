@@ -2,7 +2,7 @@
 
 import { companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 
 describe("Get leave Details", () => {
@@ -11,7 +11,7 @@ describe("Get leave Details", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/get-single-leave-details/${companyId}/139`, 
+        url: `${baseUrl}/candidate/get-single-leave-details/${companyId}/139`, 
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         },

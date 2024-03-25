@@ -1,15 +1,19 @@
 /// <reference types="Cypress" />
-import { companyId, empToken, from_date, to_date } from './../../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { companyId, from_date, to_date } from "../../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get weekly overall ", () => {
   it('should be able to get weekly overall ', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/report/weekly/${companyId}?from_date=${from_date}&to_date=${to_date}`,
+      url: `${baseUrl}/employer/report/weekly/${companyId}?from_date=${from_date}&to_date=${to_date}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
                
     }).then(response => {
@@ -25,7 +29,7 @@ describe("get weekly overall ", () => {
         expect(data).to.have.property('punch_out').that.is.a('number');
         expect(data).to.have.property('leave_taken').that.is.a('number');
         expect(data).to.have.property('percentage').that.is.a('number');
-
+    });
        });
         });
     });

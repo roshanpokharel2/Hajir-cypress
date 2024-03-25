@@ -1,14 +1,14 @@
 /// <reference types="Cypress" />
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("GET companies info", () => {
   it('should show companies info', () => {
     cy.fixture('bearerToken').then((tokenData) => {
       const bearerToken = tokenData.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/candidate/companies-info',
+      url: `${baseUrl}/candidate/companies-info`,
       headers: {
         'Authorization': `Bearer ${bearerToken}`
                }
@@ -47,8 +47,8 @@ response.body.data.forEach(company => {
     expect(company.allow_network_access).to.be.a('string');
    expect(company.departments).to.be.an('array').that.has.lengthOf.at.least(1);
     company.departments.forEach(department => {
-        expect(department.id).to.be.a('number');
-       expect(department.name).to.be.a('string');
+          expect(department.id).to.be.a('number');
+          expect(department.name).to.be.a('string');
   });
 });
     });

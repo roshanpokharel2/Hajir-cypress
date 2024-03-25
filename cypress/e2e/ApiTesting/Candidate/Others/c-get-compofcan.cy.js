@@ -7,7 +7,7 @@ describe("Get company of candidate  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: 'https://veloxlabs.net/api/v2/candidate/get-companies',
+        url: `${baseUrl}/candidate/get-companies`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

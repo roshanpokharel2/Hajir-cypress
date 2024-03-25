@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get notice  ", () => {
     it('should be able to get notice ', () => {
@@ -10,7 +10,7 @@ describe("to get notice  ", () => {
           const attendanceId = attendanceIdData.attendanceId;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/attendance-break-store/${attendanceId}`,
+        url: `${baseUrl}/candidate/attendance-break-store/${attendanceId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

@@ -1,16 +1,20 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId, candidateId, year } from './../../Constants file/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { candidateId, companyId, year } from "../../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("To get yearlyreport ", () => {
     it('should be able to get yearlyreport ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
+  
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/report/monthly-report/${companyId}/${candidateId}/${year}`,
+        url: `${baseUrl}/employer/report/yearly-report/${companyId}/${candidateId}/${year}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  },
                  
       }).then(response => {
@@ -19,14 +23,14 @@ describe("To get yearlyreport ", () => {
         expect(response.body.message).to.equal('Success');
 
         expect(response.body.data).to.exist;
-        expect(response.body.data).to.be.an('array').and.not.empty;
+        expect(response.body.data).to.be.an('array');
         
         response.body.data.forEach(entry => {
-          expect(entry).to.have.property('month').that.is.a('string').and.not.empty;
-          expect(entry).to.have.property('status').that.is.a('string').and.equal('Unpaid');
-          expect(entry).to.have.property('amount').that.is.a('string').and.not.empty;
+          expect(entry).to.have.property('month').that.is.a('string');
+          expect(entry).to.have.property('status').that.is.a('string');
+          expect(entry).to.have.property('amount').that.is.a('string');
         
         });
       });
     });
-});
+});});

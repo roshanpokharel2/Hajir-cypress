@@ -1,16 +1,20 @@
 /// <reference types="Cypress" />
-import { empToken, packageId } from '../../Constantsfile/constants';
-const baseUrl = Cypress.env('baseUrl');
+
+import { packageId } from "../../Constantsfile/constants";
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get payment store", () =>  {
   it('should be able to get payment store', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.fixture('photo.jpg').then((filecontent)=> {
       
     cy.request({
       method: 'POST',
-      url: `https://veloxlabs.net/api/v2/employer/package/payment-submit/${packageId}`,
+      url: `${baseUrl}/employer/package/payment-submit/${packageId}`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                },
       body: {
             "duration": 3,
@@ -26,4 +30,5 @@ describe("get payment store", () =>  {
     });
   });
   });
+});
 });

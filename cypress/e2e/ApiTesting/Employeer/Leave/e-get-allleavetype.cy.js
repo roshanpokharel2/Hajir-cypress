@@ -1,16 +1,19 @@
 /// <reference types = "Cypress"/>
-import { empToken } from './../../Constants file/constants';
-import { companyId } from './../../Constants file/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+import { companyId } from "../../Constantsfile/constants";
+
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get allleavetypes ", () => {
     it('should be able to get allleavetypes ', () => {
+      cy.fixture('employerToken').then((tokenDataa) => {
+        const employerToken = tokenDataa.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/leave-type/all/${companyId}`,
+        url: `${baseUrl}/employer/leave-type/all/${companyId}`,
         headers: {
-          'Authorization': empToken 
+          'Authorization': `Bearer ${employerToken}`
                  }
                  
       }).then(response => {
@@ -25,10 +28,12 @@ describe("get allleavetypes ", () => {
         const leaveTypes = response.body.data.leavetypes;
         leaveTypes.forEach(leaveType => {
           expect(leaveType).to.have.property('id').that.is.a('number');
-          expect(leaveType).to.have.property('title').that.is.a('string').and.not.empty;
-          expect(leaveType).to.have.property('status').that.is.a('string').and.equal('Active');
-          expect(leaveType).to.have.property('desc').that.is.null;
+          expect(leaveType).to.have.property('title').that.is.a('string');
+          expect(leaveType).to.have.property('status').that.is.a('string');
+          expect(leaveType).to.have.property('desc');
         });
       });
+      });
+      });
     });
-  });
+

@@ -1,14 +1,16 @@
 /// <reference types="Cypress" />
-import { empToken } from './../../Constantsfile/constants';
-const baseUrl = Cypress.env('baseUrl');
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get all active plans pack ", () =>  {
   it('should be able to get all active plans pack', () => {
+    cy.fixture('employerToken').then((tokenDataa) => {
+      const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: 'https://veloxlabs.net/api/v2/employer/package/all',
+      url: `${baseUrl}/employer/package/all`,
       headers: {
-        'Authorization': empToken 
+        'Authorization': `Bearer ${employerToken}`
                }
 
     }).then(response => {
@@ -34,5 +36,6 @@ describe("get all active plans pack ", () =>  {
           });
     });
   });
+});
 });
 });

@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import { companyId } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get enroll clock in report ", () => {
     it('should be able to get enroll clock in report   ', () => {
@@ -10,7 +10,7 @@ describe("to get enroll clock in report ", () => {
   const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/approver/enroll-attendee/clock-in/${companyId}`,
+        url: `${baseUrl}/candidate/approver/enroll-attendee/clock-in/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

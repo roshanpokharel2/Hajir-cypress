@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 import { canToken, companyId } from './../../Constantsfile/constants';
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to delete company of candidate  ", () => {
     it('should be able to delete company of candidate   ', () => {
@@ -9,7 +9,7 @@ describe("to delete company of candidate  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/delete-company/${companyId}`,
+        url: `${baseUrl}/candidate/delete-company/${companyId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

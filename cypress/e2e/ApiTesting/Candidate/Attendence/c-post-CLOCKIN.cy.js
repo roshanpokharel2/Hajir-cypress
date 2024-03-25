@@ -1,7 +1,7 @@
-/// <reference types="Cypress" />
-import { companyId } from './../../Constantsfile/constants';
+import { companyId } from "../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to clock in", () => {
   it('should be able to clock in', () => {
@@ -9,7 +9,7 @@ describe("to clock in", () => {
       const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `https://veloxlabs.net/api/v2/candidate/attendance-store/${companyId}`,
+        url: `${baseUrl}/candidate/attendance-store/${companyId}`, // Hardcoded companyId for testing
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
         }

@@ -1,8 +1,8 @@
 /// <reference types="Cypress" />
 
-import { companyId, empToken} from './../../../Constantsfile/constants';
+import { companyId } from "../../../Constantsfile/constants";
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("Get akk request send by candidate ", () => {
   it('should view all request send by candidate ', () => {
@@ -10,7 +10,7 @@ describe("Get akk request send by candidate ", () => {
       const employerToken = tokenDataa.token;
     cy.request({
       method: 'GET',
-      url: `https://veloxlabs.net/api/v2/employer/${companyId}/invitation`,
+      url: `${baseUrl}/employer/${companyId}/invitation`,
       headers: {
         'Authorization': `Bearer ${employerToken}`,
                }

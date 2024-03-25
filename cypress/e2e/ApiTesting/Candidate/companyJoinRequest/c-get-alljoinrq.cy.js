@@ -1,7 +1,7 @@
 /// <reference types = "Cypress"/>
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("to get all join request  ", () => {
     it('should be able to get all join request  ', () => {
@@ -9,7 +9,7 @@ describe("to get all join request  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/candidate/invitation/all`,
+        url: `${baseUrl}/candidate/invitation/all`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

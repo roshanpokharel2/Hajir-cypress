@@ -1,14 +1,14 @@
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 
 describe("get candidate code generated ", () => {
   it('should be able to get candidate code generated', () => {
-    cy.fixture('employerToken').then((tokenData) => {
-      const employerToken = tokenData.token;
-      const candidateId = 13; // Assuming candidateId is hardcoded for this example
-      
+  
+ cy.fixture('employerToken').then((tokenDataa) => {
+  const employerToken = tokenDataa.token;
+      const candidateId = 13; 
       cy.request({
         method: 'GET',
-        url: `https://veloxlabs.net/api/v2/employer/company/candidate-code/${candidateId}`,
+        url: `${baseUrl}/employer/company/candidate-code/${candidateId}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`,
         },
