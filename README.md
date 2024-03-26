@@ -40,7 +40,7 @@ The web tests are implemented using Cypress and are located in the `web-tests` d
 ## Steps to Run Web Tests:
 
 1. Open a terminal.
-2. Navigate to the `web-tests` directory in the cloned repository.
+2. Navigate to the `WebTesting` directory in the cloned repository.
 3. Execute the following command:
     ```bash
     npx cypress open --config-file stage.config.js
