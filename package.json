@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:stage": "NODE_ENV=stage cypress run",
-    "test:prod": "NODE_ENV=prod cypress run"
+    "stage": "npx cypress open --config-file stage.config.js",
+    "production": "npx cypress open --config-file production.config.js"
+    
   },
   "keywords": [],
   "author": "",
