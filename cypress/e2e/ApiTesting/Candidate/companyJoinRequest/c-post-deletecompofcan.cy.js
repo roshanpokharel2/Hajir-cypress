@@ -1,5 +1,5 @@
 /// <reference types = "Cypress"/>
-import { canToken, companyId } from './../../Constantsfile/constants';
+import { companyId } from './../../Constantsfile/constants';
 
 const baseUrl = Cypress.config('baseUrl');
 

@@ -5,11 +5,13 @@ describe("profile update of candidate", () => {
   it('should update profile', () => {
     cy.fixture('bearerToken').then((tokenData) => {
       const bearerToken = tokenData.token;
-      cy.fixture('photo.jpg', 'binary').then((fileContent) => {
-        // Convert binary content to Blob
+      cy.fixture('hey.jpg', 'binary').then((fileContent) => {
+        // Convert the binary file content to a Blob
         const blob = Cypress.Blob.binaryStringToBlob(fileContent);
+
+        // Create FormData and append the Blob
         const formData = new FormData();
-        formData.append('uploadfile', blob, 'photo.jpg');
+        formData.append('uploadfile', blob, 'hey.jpg');
         formData.append('title', 'Miss');
         formData.append('name', 'Pooja Upreti');
         formData.append('email', 'puja@gmail.com');
@@ -23,18 +25,18 @@ describe("profile update of candidate", () => {
           headers: {
             'Authorization': `Bearer ${bearerToken}`,
             'Content-Type': 'multipart/form-data', 
+            
           },
           body: formData, 
+          encoding: 'binary'
         }).then(response => {
-          expect(response.status).to.equal(200); 
-          const responseBody = {
-            status: "success",
-            message: "Profile updated successfully"
-          };
-          const status = 200;
-          response.status = status;
-          response.body = responseBody;
-          response.statusText = 'OK';
+          const decoder = new TextDecoder('utf-8');
+          const responseBody = decoder.decode(response.body);
+          console.log('Response body:', responseBody);
+          expect(response.status).to.be.equal(200); 
+          expect(responseBody).to.include('success');
+          expect(responseBody).to.include("Profile updated successfully");
+          
         });
       });
     });
