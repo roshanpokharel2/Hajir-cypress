@@ -18,7 +18,7 @@ describe("store leave Details", () => {
         body: {
             'leave_type_id':1,
             'remarks':"very much sick plz give me leave",
-            'start_date':`${start_date_date}`,
+            'start_date':`${start_date}`,
             'end_date':`${end_date}`,
             'type': "Full"
         }

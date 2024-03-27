@@ -19,7 +19,7 @@ describe("Post missing attendence", () => {
             'start_time':"8:00:00",
             'end_time':"2:00:00",
             'company_id':`${companyId}`,
-            'candidate_id':15,
+            'candidate_id':13,
             'attendance_date':"3/18/2024",
             'overtime':"00:10"
         }

@@ -11,7 +11,7 @@ describe("to update break  ", () => {
             
       cy.request({
         method: 'POST',
-        url: `${baseUrl}/api/v2/candidate/attendance-break-update/${breakId}`,
+        url: `${baseUrl}/candidate/attendance-break-update/${breakId}`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`, 
                  }

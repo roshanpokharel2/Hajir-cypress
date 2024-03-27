@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
 describe("Get company of candidate  ", () => {
     it('should be able get company of candidate ', () => {
       cy.fixture('bearerToken').then((tokenData) => {

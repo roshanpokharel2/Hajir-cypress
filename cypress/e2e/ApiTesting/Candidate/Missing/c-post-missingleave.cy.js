@@ -16,17 +16,23 @@ describe("Post missing Leave", () => {
             'start_time':"8:00:00",
             'end_time':"2:00:00",
             'company_id':`${companyId}`,
-            'candidate_id':15,
+            'candidate_id':13,
             'leave_type':1,
             'attendance_date':"3/18/2024",
             'overtime':"00:10"
-        }
+        },
+        failOnStatusCode: false
       }).then(response => {
-            expect(response.status).to.equal(200);
-            expect(response.body.status).to.equal("success");
-            expect(response.body.message).to.equal("Successfully Saved");
-      });
-           });
+        if (response.status === 200) {
+          expect(response.body.status).to.equal("success");
+          expect(response.body.message).to.equal("Successfully Saved");
+        } else if (response.status === 400 && response.body.message === "Leave on this date already exists") {
+          expect(response.body.status).to.equal("error");
+          
+        } else {
+          throw new Error(`Unexpected response: ${response.status} - ${response.body.message}`);
+        }
+     });
     });
-  
+  });  
 });

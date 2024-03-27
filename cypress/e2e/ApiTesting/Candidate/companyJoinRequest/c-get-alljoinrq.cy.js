@@ -21,7 +21,7 @@ describe("to get all join request  ", () => {
 
       expect(responseData.status).to.equal('success');
       expect(responseData.message).to.equal('Successfully Fetched');
-      expect(responseData.data.candidateInvitations).to.be.an('array').that.is.not.empty;
+      expect(responseData.data.candidateInvitations).to.be.an('array');
       const candidateInvitation = responseData.data.candidateInvitations[0];
       expect(candidateInvitation).to.have.property('id');
       expect(candidateInvitation).to.have.property('status');

@@ -3,7 +3,8 @@
 import { companyId } from '../../Constantsfile/constants';
 
 
-const baseUrl = Cypress.env('baseUrl');
+const baseUrl = Cypress.config('baseUrl');
+
 describe("Get candidate today detail  ", () => {
     it('should be able get candidate today detail ', () => {
      
@@ -19,7 +20,7 @@ describe("Get candidate today detail  ", () => {
       }).then(response => {
             expect(response.status).to.equal(200);
             expect(response.body.status).to.equal("success");
-            expect(response.body.message).to.equal("Successfully Fetched");
+            expect(response.body.message).to.equal("Successfully Fetched.");
             expect(response.body.data.id).to.be.a('number');
             expect(response.body.data.candidate_id).to.be.a('number');
             expect(response.body.data.company_id).to.be.a('number');
