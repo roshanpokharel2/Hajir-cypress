@@ -25,5 +25,7 @@ jobs:
       - name: Install dependencies
         run: npm install
         
-      - name: Cypress run --config-file stage.config.js
+      - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          config-file: stage.config.js
