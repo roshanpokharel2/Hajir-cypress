@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stage": "npx cypress open --config-file stage.config.js",
+    "production": "npx cypress open --config-file production.config.js"
+    
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,7 @@
     "cypress": "^13.6.6",
     "cypress-file-upload": "^5.0.8",
     "cypress-mochawesome-reporter": "^3.8.2",
+    "dotenv": "^16.4.5",
     "mochawesome-report-generator": "^6.2.0"
   }
 }

@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('saveGeneratedOTP', (otp) => {
+  cy.writeFile('cypress/fixtures/generatedOTP.json', { otp })
+    .then(() => {
+      console.log('Saved OTP to fixture:', otp);
+    });
+});Cypress.Commands.add('saveGeneratedData', (data) => {
+    cy.writeFile('cypress/fixtures/bearerToken.json', data)
+      .then(() => {
+        console.log('Saved data to fixture:', data);
+      });
+  });
+  Cypress.Commands.add('saveAttendanceId', (attendanceId) => {
+    cy.writeFile('cypress/fixtures/attendanceId.json', { attendanceId: attendanceId }).then(() => {
+      console.log('Saved attendance ID to fixture:', attendanceId);
+    });
+  });
+  
