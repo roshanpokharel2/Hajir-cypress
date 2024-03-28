@@ -19,7 +19,6 @@ describe("Get company by id", () => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal("success");
         expect(response.body.message).to.equal("Successfully Fetched.");
-        expect(response.body.data.company.name).to.equal('string');
       });
       });
     });

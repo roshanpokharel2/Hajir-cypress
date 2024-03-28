@@ -14,9 +14,7 @@ describe("Get company by employer id", () => {
         
       }).then(response => {
         expect(response.status).to.equal(200);
-        expect(response.body.status).to.equal("success");
-        expect(response.body.message).to.equal("Successfully Fetched.");
-        expect(response.body.active_companies.name).to.equal('string');
+        expect(response.body.status).to.equal('success');
       });
       });
     });

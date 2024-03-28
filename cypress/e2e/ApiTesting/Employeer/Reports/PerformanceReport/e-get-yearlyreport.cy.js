@@ -15,10 +15,11 @@ describe("To get yearlyreport ", () => {
         url: `${baseUrl}/employer/report/yearly-report/${companyId}/${candidateId}/${year}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`
-                 },
+                 }
                  
       }).then(response => {
         expect(response.status).to.equal(200);
+        console.log(response.body.status)
         expect(response.body.status).to.equal('success');
         expect(response.body.message).to.equal('Success');
 
@@ -33,4 +34,5 @@ describe("To get yearlyreport ", () => {
         });
       });
     });
-});});
+});
+});
