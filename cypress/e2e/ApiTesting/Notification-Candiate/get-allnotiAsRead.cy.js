@@ -22,3 +22,4 @@ describe("get all notification as read", () =>  {
     });
   });
   });
+  

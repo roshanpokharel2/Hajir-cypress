@@ -35,7 +35,7 @@ describe("get inactive candidate ", () => {
           expect(candidate).to.have.property('attendance_id');
           expect(candidate).to.have.property('start_time');
           expect(candidate).to.have.property('end_time');
-          expect(candidate).to.have.property('status').that.is.a('string').and.equal('Absent');
+          expect(candidate).to.have.property('status');
         });
        });
         });

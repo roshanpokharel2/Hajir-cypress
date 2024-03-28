@@ -25,7 +25,7 @@ describe("get allapprover ", () => {
         expect(response.body.data).to.be.an('array').and.not.empty;
         
         // Iterate over each candidate and assert its properties
-        response.body.data.forEach(candidate => {
+        response.body.data.forEach(candidate => {-
           expect(candidate).to.have.property('id').that.is.a('number');
           expect(candidate).to.have.property('company_id').that.is.a('number');
           expect(candidate).to.have.property('candidate_id').that.is.a('number');

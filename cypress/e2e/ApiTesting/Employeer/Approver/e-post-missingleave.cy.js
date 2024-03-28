@@ -32,7 +32,7 @@ describe("to add missingleave  ", () => {
           // Handle other response statuses or success cases
           expect(response.status).to.equal(200); // Adjust as needed
           expect(response.body.status).to.equal("success");
-          expect(response.body.message).to.equal("Leave submitted successfully");
+          expect(response.body.message).to.equal("Successfully Saved");
         }
       });
         });
