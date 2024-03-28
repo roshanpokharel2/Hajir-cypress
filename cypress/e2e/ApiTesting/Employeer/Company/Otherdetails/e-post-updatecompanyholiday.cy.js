@@ -4,26 +4,25 @@ import { companyId } from "../../../Constantsfile/constants";
 
 const baseUrl = Cypress.config('baseUrl');
 
-
 describe("Company holiday update Process", () => {
   it('should be able to update the company holiday', () => {
     cy.fixture('employerToken').then((tokenDataa) => {
       const employerToken = tokenDataa.token;
-    cy.fixture('holiday_sample.xls').then((fileContent) => {
+    cy.fixture('Default_gov_holiday_2081.xls', 'binary').then((fileContent) => {
       cy.request({
         method: 'POST',
         url: `${baseUrl}/employer/company/update-special-holiday/${companyId}`, 
         headers: {
-          'Authorization': `Bearer ${employerToken}`
+          'Authorization': `Bearer ${employerToken}`,
+          'Content-Type': 'application/octet-stream'
         },
-        body: {
+        body: fileContent, // Use the loaded file content here
+          encoding: 'binary'
 
-          "custom_holiday_file": fileContent  // Use the loaded file content here
-        }
       }).then(response => {
         expect(response.status).to.equal(200);
-        expect(response.body.status).to.equal("success");
-        expect(response.body.message).to.equal("Holidays successfully updated");
+          expect(response.body.status).to.equal("success");
+          expect(response.body.message).to.equal("Holidays successfully updated");
       });
       });
     });

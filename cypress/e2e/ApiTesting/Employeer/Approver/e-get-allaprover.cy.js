@@ -15,7 +15,7 @@ describe("get allapprover ", () => {
         url: `${baseUrl}/employer/approver/list/${companyId}`,
         headers: {
           'Authorization': `Bearer ${employerToken}`
-                 }
+                 },
                  
       }).then(response => {
         expect(response.status).to.equal(200);

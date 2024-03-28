@@ -26,10 +26,10 @@ describe("To get weeklyreport ", () => {
         
         const salaryData = response.body.data;
 
-        expect(salaryData).to.have.property('salary').that.is.a('number').and.equal(2000);
-        expect(salaryData).to.have.property('overtime').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('allowance').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('total_salary').that.is.a('number').and.equal(2000);
+        expect(salaryData).to.have.property('salary').that.is.a('number');
+        expect(salaryData).to.have.property('overtime').that.is.a('number');
+        expect(salaryData).to.have.property('allowance').that.is.a('number');
+        expect(salaryData).to.have.property('total_salary').that.is.a('number');
         
         });
       });

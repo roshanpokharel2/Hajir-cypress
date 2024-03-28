@@ -22,7 +22,7 @@ export const missingleaveend="25-03-2024";
 
 //Candidate side 
 export const candidatePhone = "9861389660";
-export const candidateId = 13 ;
+export const candidateId = 72 ;
 export const device_token ="roshanpokharel";
 
 //import { employerPhone, candidatePhone, candidateToken, employerToken, candidateId, employerId, companyId } from './Constants file/constants';

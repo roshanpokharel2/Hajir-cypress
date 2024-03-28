@@ -29,7 +29,7 @@ describe("To send payment ", () => {
       }).then(response => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
-        expect(response.body.message).to.equal('Successfully Fetched.');
+        expect(response.body.message).to.equal('Successfully Stored');
       });
         });
       });

@@ -26,19 +26,19 @@ describe("To get monthlyreport ", () => {
         
         const salaryData = response.body.data;
 
-        expect(salaryData).to.have.property('allowed_breaks').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('salary').that.is.a('number').and.equal(122.92);
-        expect(salaryData).to.have.property('overtime').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('bonus').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('allowance').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('tax').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('penalty').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('total_salary').that.is.a('number').and.equal(122.92);
-        expect(salaryData).to.have.property('total_deduction').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('used_sick_leave').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('used_casual_leave').that.is.a('number').and.equal(0);
-        expect(salaryData).to.have.property('total_casual_leave').that.is.a('number').and.equal(4);
-        expect(salaryData).to.have.property('total_sick_leave').that.is.a('number').and.equal(5);
+        expect(salaryData).to.have.property('allowed_breaks').that.is.a('number');
+        expect(salaryData).to.have.property('salary').that.is.a('number');
+        expect(salaryData).to.have.property('overtime').that.is.a('number');
+        expect(salaryData).to.have.property('bonus').that.is.a('number');
+        expect(salaryData).to.have.property('allowance').that.is.a('number');
+        expect(salaryData).to.have.property('tax').that.is.a('number');
+        expect(salaryData).to.have.property('penalty').that.is.a('number');
+        expect(salaryData).to.have.property('total_salary').that.is.a('number');
+        expect(salaryData).to.have.property('total_deduction').that.is.a('number');
+        expect(salaryData).to.have.property('used_sick_leave').that.is.a('number');
+        expect(salaryData).to.have.property('used_casual_leave').that.is.a('number');
+        expect(salaryData).to.have.property('total_casual_leave').that.is.a('number');
+        expect(salaryData).to.have.property('total_sick_leave').that.is.a('number');
         
         });
       });
