@@ -9,7 +9,7 @@ describe("to delete company of candidate  ", () => {
         const bearerToken = tokenData.token;
       cy.request({
         method: 'POST',
-        url: `${baseUrl}/candidate/delete-company/${companyId}`,
+        url: `${baseUrl}/candidate/delete-company/1`,
         headers: {
           'Authorization': `Bearer ${bearerToken}`,
                  }

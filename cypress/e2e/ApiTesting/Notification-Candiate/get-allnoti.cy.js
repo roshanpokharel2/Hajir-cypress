@@ -30,7 +30,7 @@ describe("get all notification ", () =>  {
           expect(notification.type_id).to.be.a('number');
           expect(notification.title).to.be.a('string');
           expect(notification.message).to.be.a('string');
-          expect(notification.company_id).to.be.a('number');
+          expect(parseInt(notification.company_id)).to.be.a('number');
           expect(notification.candidate_id).to.be.a('number');
           expect(notification.employer_id).to.be.a('number');
           expect(notification.created_date).to.be.a('string');

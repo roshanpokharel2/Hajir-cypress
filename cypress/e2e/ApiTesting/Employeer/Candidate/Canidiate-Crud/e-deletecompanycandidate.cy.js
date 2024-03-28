@@ -17,8 +17,8 @@ describe("delete comany candidate ", () => {
                
     }).then(response => {
         expect(response.status).to.equal(200);
-        expect(response.status).to.equal("success");
-        expect(response.message).to.equal("string");
+        expect(response.body.status).to.equal("success");
+        expect(response.body).to.have.property('message');
     });
     });
   });

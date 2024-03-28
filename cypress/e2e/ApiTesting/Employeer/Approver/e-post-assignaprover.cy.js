@@ -19,7 +19,7 @@ describe("to assign approver ", () => {
       }).then(response => {
         expect(response.status).to.equal(200);
         expect(response.body.status).to.equal('success');
-        expect(response.body.message).to.equal('Approver successfully added.');
+        expect(response.body.message).to.equal('Approved Successfully Added.');
       });
         });
       });

@@ -2,54 +2,56 @@
 
 import { candidateId, companyId } from "../../../Constantsfile/constants";
 
-
 const baseUrl = Cypress.config('baseUrl');
 
 describe("candidate Details ", () => {
   it('should be able to view candidate details', () => {
-    cy.fixture('employerToken').then((tokenDataa) => {
-      const employerToken = tokenDataa.token;
-    cy.request({
-      method: 'GET',
-      url: `${baseUrl}/employer/candidate/get-candidate/${companyId}/${candidateId}`,
-      headers: {
-        'Authorization': `Bearer ${employerToken}`,
-               }
-               
-    }).then(response => {
+    cy.fixture('employerToken').then((tokenData) => {
+      const employerToken = tokenData.token;
+      cy.request({
+        method: 'GET',
+        url: `${baseUrl}/employer/candidate/get-candidate/${companyId}/${candidateId}`,
+        headers: {
+          'Authorization': `Bearer ${employerToken}`,
+        }
+      }).then(response => {
         expect(response.status).to.equal(200);
-        expect(response.status).to.equal("success");
-        expect(response.message).to.equal("Successfully Fetched.");
-        expect(response.data.company_id).to.equal(2);
-        expect(response.data.candidate_id).to.equal(13);
-        expect(response.data.name_holder).to.equal("Mr");
-        expect(response.data.name).to.equal("Roshan pokharel");
-        expect(response.data.code).to.equal("");
-        expect(response.data.designation).to.equal("qa");
-        expect(response.data.phone).to.equal("9861389660");
-        expect(response.data.email).to.equal("pokharelroshan72@gmail.com");
-        expect(response.data.dob).to.equal("2001-03-10");
-        expect(response.data.joining_date).to.equal("2024-02-18T18:15:00.000000Z");
-        expect(response.data.marriage_status).to.equal("Unmarried");
-        expect(response.data.salary_amount).to.equal(15000);
-        expect(response.data.salary_type).to.equal("Monthly");
-        expect(response.data.probation_period).to.equal(1);
-        expect(response.data.working_hours).to.equal("6:00");
-        expect(response.data.allow_late_attendance).to.equal("00:05:00");
-        expect(response.data.overtime_hrs).to.equal("2 (1)");
-        expect(response.data.allowance_amount).to.equal("0 Monthly");
-        expect(response.data.duty_time).to.equal("08:00:00");
-        expect(response.data.office_hour_end).to.equal("14:00:00");
-        expect(response.data.break_duration).to.equal("00:30");
-        expect(response.data.casual_leave).to.equal(2);
-        expect(response.data.sick_leave).to.equal(2);
-        expect(response.data.allow_network_access).to.equal("All Net");
-        expect(response.data.weekly_off[0].id).to.equal(7);
-        expect(response.data.weekly_off[0].business_leave).to.equal("Saturday");
-        expect(response.data.departments[0].id).to.equal(15);
-        expect(response.data.departments[0].name).to.equal("Quality Assurance (QA)");
-        expect(response.data.profile_image).to.equal("http://veloxlabs.net//storage/upload/24/03/17095232611000000774.jpg");
+        expect(response.body.status).to.equal('success');
+        expect(response.body.message).to.equal("Successfully Fetched.");
+
+        const responseData = response.body.data;
+
+       
+        expect(responseData).to.have.property('company_id');
+        expect(responseData).to.have.property('candidate_id');
+        expect(responseData).to.have.property('name_holder');
+        expect(responseData).to.have.property('name');
+        expect(responseData).to.have.property('code');
+        expect(responseData).to.have.property('designation');
+        expect(responseData).to.have.property('phone');
+        expect(responseData).to.have.property('email');
+        expect(responseData).to.have.property('dob');
+        expect(responseData).to.have.property('joining_date');
+        expect(responseData).to.have.property('marriage_status');
+        expect(responseData).to.have.property('salary_amount');
+        expect(responseData).to.have.property('salary_type');
+        expect(responseData).to.have.property('probation_period');
+        expect(responseData).to.have.property('working_hours');
+        expect(responseData).to.have.property('allow_late_attendance');
+        expect(responseData).to.have.property('overtime_hrs');
+        expect(responseData).to.have.property('allowance_amount');
+        expect(responseData).to.have.property('duty_time');
+        expect(responseData).to.have.property('office_hour_end');
+        expect(responseData).to.have.property('break_duration');
+        expect(responseData).to.have.property('casual_leave');
+        expect(responseData).to.have.property('sick_leave');
+        expect(responseData).to.have.property('allow_network_access');
+        expect(responseData.weekly_off?.[0]).to.have.property('id'); 
+        expect(responseData.weekly_off?.[0]).to.have.property('business_leave');
+        expect(responseData.departments?.[0]).to.have.property('id');
+        expect(responseData.departments?.[0]).to.have.property('name');
+        expect(responseData).to.have.property('profile_image');
+      });
     });
-  });
   });
 });

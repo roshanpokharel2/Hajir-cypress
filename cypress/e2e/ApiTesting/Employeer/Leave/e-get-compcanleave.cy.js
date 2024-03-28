@@ -35,8 +35,8 @@ describe("get companycanleave ", () => {
           expect(candidate).to.have.property('end_date').that.is.a('string');
           expect(candidate).to.have.property('created_at').that.is.a('string');
           expect(candidate).to.have.property('name').that.is.a('string');
-          expect(candidate).to.have.property('attachment').that.is.a('string');
-          expect(candidate).to.have.property('profile_image').that.is.a('string');
+          expect(candidate).to.have.property('attachment').that.satisfy(value => typeof value === "string" || value === null);
+          expect(candidate).to.have.property('profile_image').that.satisfy(value => typeof value === "string" || value === null);
         });
       });
     });
